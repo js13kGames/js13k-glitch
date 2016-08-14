@@ -22,6 +22,7 @@ class Main {
 	public static var doClear:Bool = true;
 	private static var isClear:Bool = true;
 	
+	public static var controls(default, null):Controls;
 	private static var level:Level;
 	
 	static function main() {
@@ -34,6 +35,7 @@ class Main {
 		c.fillRect(0, 0, 640, 480);
 		clearData = c.getImageData(0, 0, 640, 480);
 		
+		controls = new Controls();
 		loadLevel("start.json", 0);
 		
 		Browser.window.setInterval(step, 1000 / 60);
@@ -58,7 +60,7 @@ class Main {
 		isClear = doClear;
 		
 		if(level != null){
-			level.update(1000 / 60);
+			level.update(1 / 60);
 		}
 	}
 }

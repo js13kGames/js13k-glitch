@@ -21,7 +21,7 @@ class AABB{
 	}
 	
 	public function checkOverlap(other:AABB, xShift:Float = 0, yShift:Float = 0):Bool{
-		if(this.x + aabbLeft > other.x + other.aabbRight + xShift){
+		if (this.x + aabbLeft > other.x + other.aabbRight + xShift) {
 			return false;
 		}
 		
@@ -29,11 +29,11 @@ class AABB{
 			return false;
 		}
 		
-		if(this.y + aabbTop > other.y + other.aabbBottom){
+		if(this.y + aabbTop > other.y + other.aabbBottom + yShift){
 			return false;
 		}
 		
-		if(this.y + aabbBottom < other.y + other.aabbTop){
+		if(this.y + aabbBottom < other.y + other.aabbTop + yShift){
 			return false;
 		}
 		

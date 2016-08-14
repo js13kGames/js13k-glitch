@@ -1,4 +1,4 @@
-package lcann.glitch;
+package lcann.glitch.level;
 import lcann.glitch.level.Level;
 
 /**
