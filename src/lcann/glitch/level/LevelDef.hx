@@ -7,4 +7,5 @@ package lcann.glitch.level;
 typedef LevelDef = {
 	var name:String;
 	var platformLayer:Array<PlatformDef>;
+	var player:Array<Point>;
 }

@@ -5,5 +5,8 @@ package lcann.glitch.resource.level;
  */
 
 typedef Level ={
-	var layers:Array<Layer>;	
+	var layers:Array<Layer>;
+	var properties:LevelProperties;
+	var tilewidth:Int;
+	var tileheight:Int;
 }

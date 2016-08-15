@@ -7,6 +7,8 @@ package lcann.glitch.level;
 typedef PlatformDef ={
 	var x:Float;
 	var y:Float;
-	var width:Float;
-	var height:Float;
+	var w:Float;
+	var h:Float;
+	var t:String;//type
+	@:optional var cv:String;//condition variable;
 }

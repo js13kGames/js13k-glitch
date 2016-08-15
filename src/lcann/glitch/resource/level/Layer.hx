@@ -5,6 +5,6 @@ package lcann.glitch.resource.level;
  */
 
 typedef Layer ={
-	var name:LayerType;
+	var name:String;
 	var objects:Array<Object>;
 }

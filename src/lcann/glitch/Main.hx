@@ -32,8 +32,8 @@ class Main {
 		c.imageSmoothingEnabled = false;
 		
 		c.fillStyle = "black";
-		c.fillRect(0, 0, 640, 480);
-		clearData = c.getImageData(0, 0, 640, 480);
+		c.fillRect(0, 0, canvas.width, canvas.height);
+		clearData = c.getImageData(0, 0, canvas.width, canvas.height);
 		
 		controls = new Controls();
 		loadLevel("start.json", 0);
@@ -53,7 +53,7 @@ class Main {
 	static private function step() {
 		if (doClear) {
 			if(!isClear){
-				clearData = c.getImageData(0, 0, 640, 480);
+				clearData = c.getImageData(0, 0, canvas.width, canvas.height);
 			}
 			c.putImageData(clearData, 0, 0);
 		}

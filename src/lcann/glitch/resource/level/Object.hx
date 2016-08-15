@@ -6,10 +6,12 @@ package lcann.glitch.resource.level;
 
 typedef Object ={
 	var name:String;
-	var type:ObjectType;
+	var type:String;
 	
 	var x:Float;
 	var y:Float;
 	var width:Float;
 	var height:Float;
+	
+	var properties:ObjectProperties;
 }

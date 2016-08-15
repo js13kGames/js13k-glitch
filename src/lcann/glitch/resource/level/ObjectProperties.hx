@@ -4,6 +4,6 @@ package lcann.glitch.resource.level;
  * @author Luke Cann
  */
 
-enum LayerType {
-	platform;
+typedef ObjectProperties ={
+	@:optional var openVariable:String;	
 }

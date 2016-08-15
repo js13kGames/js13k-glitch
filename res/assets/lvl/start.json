@@ -1,11 +1,11 @@
-{ "height":15,
+{ "height":36,
  "layers":[
         {
-         "height":15,
+         "height":36,
          "name":"platform",
          "objects":[
                 {
-                 "height":32,
+                 "height":60,
                  "name":"",
                  "properties":
                     {
@@ -13,12 +13,25 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":640,
+                 "width":1920,
+                 "x":0,
+                 "y":1020
+                }, 
+                {
+                 "height":780,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":60,
                  "x":0,
                  "y":0
                 }, 
                 {
-                 "height":32,
+                 "height":780,
                  "name":"",
                  "properties":
                     {
@@ -26,12 +39,12 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":640,
-                 "x":0,
-                 "y":448
+                 "width":60,
+                 "x":1860,
+                 "y":0
                 }, 
                 {
-                 "height":416,
+                 "height":60,
                  "name":"",
                  "properties":
                     {
@@ -39,12 +52,12 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":32,
-                 "x":0,
-                 "y":32
+                 "width":1800,
+                 "x":60,
+                 "y":0
                 }, 
                 {
-                 "height":416,
+                 "height":60,
                  "name":"",
                  "properties":
                     {
@@ -52,25 +65,88 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":32,
-                 "x":608,
-                 "y":32
+                 "width":330,
+                 "x":360,
+                 "y":750
+                }, 
+                {
+                 "height":60,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":330,
+                 "x":1230,
+                 "y":750
+                }, 
+                {
+                 "height":240,
+                 "name":"",
+                 "properties":
+                    {
+                     "openVariable":"glitchRoute"
+                    },
+                 "type":"door",
+                 "visible":true,
+                 "width":60,
+                 "x":0,
+                 "y":780
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":20,
+         "width":64,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":36,
+         "name":"portal",
+         "objects":[
+                {
+                 "height":240,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"portal",
+                 "visible":true,
+                 "width":60,
+                 "x":-90,
+                 "y":780
+                }, 
+                {
+                 "height":240,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"portal",
+                 "visible":true,
+                 "width":60,
+                 "x":1950,
+                 "y":780
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":64,
          "x":0,
          "y":0
         }],
  "orientation":"orthogonal",
  "properties":
     {
-
+     "player":"32,34;1,34;63,34"
     },
- "tileheight":32,
+ "tileheight":30,
  "tilesets":[],
- "tilewidth":32,
+ "tilewidth":30,
  "version":1,
- "width":20
+ "width":64
 }
