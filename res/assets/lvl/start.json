@@ -108,10 +108,11 @@
          "objects":[
                 {
                  "height":240,
-                 "name":"",
+                 "name":"Left",
                  "properties":
                     {
-
+                     "level":"L_01.json",
+                     "spawn":"1"
                     },
                  "type":"portal",
                  "visible":true,
@@ -121,10 +122,11 @@
                 }, 
                 {
                  "height":240,
-                 "name":"",
+                 "name":"Right",
                  "properties":
                     {
-
+                     "level":"R_01.json",
+                     "spawn":"0"
                     },
                  "type":"portal",
                  "visible":true,

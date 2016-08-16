@@ -25,7 +25,7 @@ class Player extends AABB implements Entity {
 		var mx:Float = Main.controls.getMovement() * 300 * s;
 		ySpeed += 120 * 9 * s;
 		
-		for(p in level.platformLayer){
+		for(p in level.platform){
 			if(p.checkOverlap(this, mx)){
 				mx = 0;
 			}
@@ -43,6 +43,12 @@ class Player extends AABB implements Entity {
 		
 		y += ySpeed * s;
 		x += mx;
+		
+		for(p in level.portal){
+			if(p.checkOverlap(this)){
+				Main.loadLevel(p.level, p.spawn);
+			}
+		}
 		
 		Main.c.fillStyle = "white";
 		Main.c.fillRect(x - 30, y - 140, 60, 140);

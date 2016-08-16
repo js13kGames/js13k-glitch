@@ -5,5 +5,7 @@ package lcann.glitch.resource.level;
  */
 
 typedef ObjectProperties ={
-	@:optional var openVariable:String;	
+	@:optional var openVariable:String;
+	@:optional var level:String;
+	@:optional var spawn:String;
 }

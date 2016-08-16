@@ -14,6 +14,7 @@ import haxe.Json;
 import lcann.glitch.level.LevelDef;
 import lcann.glitch.level.PlatformDef;
 import lcann.glitch.resource.level.Level;
+import lcann.glitch.level.PortalDef;
 #end
 
 /**
@@ -49,7 +50,8 @@ class ResBuilder {
 		var def:LevelDef = {
 			name: f,
 			platformLayer: new Array<PlatformDef>(),
-			player: new Array<Point>()
+			player: new Array<Point>(),
+			portal: new Array<PortalDef>()
 		}
 		
 		for(p in res.properties.player.split(";")){
@@ -64,6 +66,8 @@ class ResBuilder {
 			switch(l.name){
 				case "platform":
 					buildPlatformLayer(l.objects, def);
+				case "portal":
+					buildPortalLayer(l.objects, def);
 			}
 		}
 		
@@ -90,6 +94,22 @@ class ResBuilder {
 						t: "d",
 						cv: o.properties.openVariable
 					} );
+			}
+		}
+	}
+	
+	private static function buildPortalLayer(obj:Array<Object>, def:LevelDef){
+		for(o in obj){
+			switch(o.type){
+				case "portal":
+					def.portal.push({
+						x: o.x,
+						y: o.y,
+						w: o.width,
+						h: o.height,
+						t: o.properties.level,
+						l: Std.parseInt(o.properties.spawn)
+					});
 			}
 		}
 	}

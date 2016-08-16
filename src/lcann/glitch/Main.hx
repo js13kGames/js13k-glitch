@@ -48,6 +48,8 @@ class Main {
 				return;
 			}
 		}
+		
+		level = null;
 	}
 	
 	static private function step() {
