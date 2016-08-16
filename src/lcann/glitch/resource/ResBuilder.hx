@@ -58,7 +58,7 @@ class ResBuilder {
 			var xy:Array<String> = p.split(",");
 			def.player.push({
 				x: Std.parseInt(xy[0]) * res.tilewidth,
-				y: Std.parseInt(xy[1]) * res.tileheight
+				y: Std.parseInt(xy[1]) * res.tileheight - 1
 			});
 		}
 		

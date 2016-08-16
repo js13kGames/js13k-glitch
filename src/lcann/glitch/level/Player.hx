@@ -21,28 +21,38 @@ class Player extends AABB implements Entity {
 	
 	/* INTERFACE lcann.glitch.Entity */
 	public function update(level:Level, s:Float):Void {
-		var ground:Bool = false;
-		var mx:Float = Main.controls.getMovement() * 300 * s;
 		ySpeed += 120 * 9 * s;
 		
+		var ground:Bool = false;
+		var mx:Float = Main.controls.getMovement() * 300 * s;
+		var my:Float = ySpeed * s;
+		
+		
 		for(p in level.platform){
-			if(p.checkOverlap(this, mx)){
-				mx = 0;
-			}
-			if (p.checkOverlap(this, 0, ySpeed * s)) {
+			if (p.checkOverlap(this, 0, my)) {
 				if(ySpeed > 0){
 					ground = true;
 				}
+				//Move to contact
+				my = this.moveContactY(p, my);
+				my = my > 0 ? my - 0.2 : my + 0.2;
 				ySpeed = 0;
+			}
+			
+			if(p.checkOverlap(this, mx)){
+				//move to contact
+				mx = this.moveContactX(p, mx);
+				mx = mx > 0 ? mx - 0.2 : mx + 0.2;
 			}
 		}
 		
 		if(ground && Main.controls.getJump()){
 			ySpeed = -800;
+			my += ySpeed * s;
 		}
 		
-		y += ySpeed * s;
 		x += mx;
+		y += my;
 		
 		for(p in level.portal){
 			if(p.checkOverlap(this)){

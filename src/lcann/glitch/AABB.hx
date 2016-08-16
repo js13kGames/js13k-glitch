@@ -39,4 +39,17 @@ class AABB{
 		
 		return true;
 	}
+	
+	public function moveContactX(other:AABB, max:Float):Float{
+		return moveContact(x + aabbLeft, x + aabbRight, other.x + other.aabbLeft, other.x + other.aabbRight, max);
+	}
+	
+	public function moveContactY(other:AABB, max:Float):Float{
+		return moveContact(y + aabbTop, y + aabbBottom, other.y + other.aabbTop, other.y + other.aabbBottom, max);
+	}
+	
+	private static function moveContact(low:Float, high:Float, otherLow:Float, otherHigh:Float, max:Float):Float{
+		var d:Float = max > 0 ? otherLow - high : otherHigh - low;
+		return max > 0 ? Math.min(Math.abs(d), Math.abs(max)) : -Math.min(Math.abs(d), Math.abs(max));
+	}
 }
