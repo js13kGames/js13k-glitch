@@ -30,8 +30,7 @@ class ResBuilder {
 		}
 		
 		var c = macro class R {
-			public var levels:Array<lcann.glitch.level.LevelDef> = $ { Context.parse(Json.stringify(levels), Context.currentPos()) };
-			
+			public var levels:Array<lcann.glitch.level.LevelDef> = $v{levels};
 			public function new(){}
 		}
 		

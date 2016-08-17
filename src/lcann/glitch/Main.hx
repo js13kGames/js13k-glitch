@@ -6,6 +6,7 @@ import js.html.CanvasRenderingContext2D;
 import js.Browser;
 import js.html.ImageData;
 import lcann.glitch.level.Level;
+import lcann.glitch.level.LevelDef;
 import lcann.glitch.resource.ResBuilder;
 
 /**
@@ -23,7 +24,10 @@ class Main {
 	private static var isClear:Bool = true;
 	
 	public static var controls(default, null):Controls;
+	
+	public static var state(default, null):State;
 	private static var level:Level;
+	
 	
 	static function main() {
 		canvas = cast Browser.window.document.getElementById("c");
@@ -36,19 +40,28 @@ class Main {
 		clearData = c.getImageData(0, 0, canvas.width, canvas.height);
 		
 		controls = new Controls();
-		loadLevel("start.json", 0);
+		
+		state = {
+			flags: new Map<String, Bool>(),
+			level: "start.json",
+			spawn: 0
+		}
+		resetLevel();
 		
 		Browser.window.setInterval(step, 1000 / 60);
 	}
 	
-	static public function loadLevel(name:String, spawn:Int):Void{
+	static public function resetLevel():Void{
+		loadLevel(state.level, state.spawn);
+	}
+	
+	static public function loadLevel(name:String, spawn:Int):Void {
 		for(l in r.levels){
 			if(l.name == name){
 				level = new Level(l, spawn);
 				return;
 			}
 		}
-		
 		level = null;
 	}
 	
