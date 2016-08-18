@@ -21,10 +21,10 @@ class Player extends AABB implements Entity {
 	
 	/* INTERFACE lcann.glitch.Entity */
 	public function update(level:Level, s:Float):Void {
-		ySpeed += 120 * 9 * s;
+		ySpeed += 2000 * s;
 		
 		var ground:Bool = false;
-		var mx:Float = Main.controls.getMovement() * 300 * s;
+		var mx:Float = Main.controls.getMovement() * 480 * s;
 		var my:Float = ySpeed * s;
 		
 		
@@ -47,7 +47,7 @@ class Player extends AABB implements Entity {
 		}
 		
 		if(ground && Main.controls.getJump()){
-			ySpeed = -800;
+			ySpeed = -1100;
 			my += ySpeed * s;
 		}
 		

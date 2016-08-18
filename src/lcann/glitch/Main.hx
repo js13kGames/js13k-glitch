@@ -23,21 +23,17 @@ class Main {
 	public static var doClear:Bool = true;
 	private static var isClear:Bool = true;
 	
-	public static var controls(default, null):Controls;
+	private static var lms:Float;
 	
+	public static var controls(default, null):Controls;
 	public static var state(default, null):State;
 	private static var level:Level;
 	
-	
 	static function main() {
 		canvas = cast Browser.window.document.getElementById("c");
+		
 		c = canvas.getContext2d();
-		
 		c.imageSmoothingEnabled = false;
-		
-		c.fillStyle = "black";
-		c.fillRect(0, 0, canvas.width, canvas.height);
-		clearData = c.getImageData(0, 0, canvas.width, canvas.height);
 		
 		controls = new Controls();
 		
@@ -48,7 +44,8 @@ class Main {
 		}
 		resetLevel();
 		
-		Browser.window.setInterval(step, 1000 / 60);
+		lms = Browser.window.performance.now();
+		Browser.window.requestAnimationFrame(step);
 	}
 	
 	static public function resetLevel():Void{
@@ -56,6 +53,13 @@ class Main {
 	}
 	
 	static public function loadLevel(name:String, spawn:Int):Void {
+		c.fillStyle = "black";
+		c.fillRect(0, 0, canvas.width, canvas.height);
+		clearData = c.getImageData(0, 0, canvas.width, canvas.height);
+		
+		state.level = name;
+		state.spawn = spawn;
+		
 		for(l in r.levels){
 			if(l.name == name){
 				level = new Level(l, spawn);
@@ -65,7 +69,10 @@ class Main {
 		level = null;
 	}
 	
-	static private function step() {
+	static private function step(ms:Float):Void {
+		var s:Float = Math.min((ms - lms) / 1000, 1/24);
+		lms = ms;
+		
 		if (doClear) {
 			if(!isClear){
 				clearData = c.getImageData(0, 0, canvas.width, canvas.height);
@@ -74,8 +81,11 @@ class Main {
 		}
 		isClear = doClear;
 		
+		
 		if(level != null){
-			level.update(1 / 60);
+			level.update(s);
 		}
+		
+		Browser.window.requestAnimationFrame(step);
 	}
 }
