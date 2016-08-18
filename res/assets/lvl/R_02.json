@@ -5,6 +5,19 @@
          "name":"platform",
          "objects":[
                 {
+                 "height":480,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":60,
+                 "x":0,
+                 "y":540
+                }, 
+                {
                  "height":60,
                  "name":"",
                  "properties":
@@ -31,20 +44,7 @@
                  "y":0
                 }, 
                 {
-                 "height":480,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":60,
-                 "x":1860,
-                 "y":540
-                }, 
-                {
-                 "height":720,
+                 "height":240,
                  "name":"",
                  "properties":
                     {
@@ -57,33 +57,7 @@
                  "y":60
                 }, 
                 {
-                 "height":60,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":330,
-                 "x":1530,
-                 "y":540
-                }, 
-                {
-                 "height":240,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":240,
-                 "x":1110,
-                 "y":780
-                }, 
-                {
-                 "height":240,
+                 "height":960,
                  "name":"",
                  "properties":
                     {
@@ -94,6 +68,19 @@
                  "width":60,
                  "x":1860,
                  "y":60
+                }, 
+                {
+                 "height":60,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":1560,
+                 "x":60,
+                 "y":540
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -111,27 +98,12 @@
                  "name":"left",
                  "properties":
                     {
-                     "level":"start.json",
-                     "spawn":"2"
+                     "spawn":"1"
                     },
                  "type":"portal",
                  "visible":true,
                  "width":60,
                  "x":-90,
-                 "y":780
-                }, 
-                {
-                 "height":240,
-                 "name":"right",
-                 "properties":
-                    {
-                     "level":"R_02.json",
-                     "spawn":"0"
-                    },
-                 "type":"portal",
-                 "visible":true,
-                 "width":60,
-                 "x":1950,
                  "y":300
                 }],
          "opacity":1,
@@ -144,7 +116,20 @@
         {
          "height":36,
          "name":"enemy",
-         "objects":[],
+         "objects":[
+                {
+                 "height":60,
+                 "name":"walk",
+                 "properties":
+                    {
+                     "dir":"R"
+                    },
+                 "type":"enemy",
+                 "visible":true,
+                 "width":60,
+                 "x":930,
+                 "y":960
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -155,7 +140,7 @@
  "orientation":"orthogonal",
  "properties":
     {
-     "player":"1,34;36,18"
+     "player":"1,18"
     },
  "tileheight":30,
  "tilesets":[],

@@ -2,6 +2,7 @@ package lcann.glitch.level;
 import js.html.Point;
 import lcann.glitch.level.Platform;
 import lcann.glitch.level.enemy.Enemy;
+import lcann.glitch.level.enemy.EnemyWalker;
 
 /**
  * ...
@@ -34,12 +35,21 @@ class Level {
 		}
 		
 		enemy = new Array<Enemy>();
-		
+		for(e in levelDef.enemy){
+			switch(e.t){
+				case "w":
+					enemy.push(new EnemyWalker(e.x, e.y, e.w, e.h));
+			}
+		}
 	}
 	
 	public function update(s:Float):Void{
 		for (p in platform) {
 			p.update(this, s);
+		}
+		
+		for(e in enemy){
+			e.update(this, s);
 		}
 		
 		player.update(this, s);

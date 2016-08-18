@@ -17,6 +17,7 @@ class Enemy extends AABB implements Entity{
 	
 	/* INTERFACE lcann.glitch.level.Entity */
 	public function update(level:Level, s:Float):Void {
-		
+		Main.c.fillStyle = "red";
+		Main.c.fillRect(x + aabbLeft, y + aabbTop, (x + aabbRight) - (x + aabbLeft), (y + aabbBottom) - (y + aabbTop));
 	}
 }
