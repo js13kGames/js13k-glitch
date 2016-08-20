@@ -10,4 +10,5 @@ typedef LevelDef = {
 	var player:Array<Point>;
 	var portal:Array<PortalDef>;
 	var enemy:Array<EnemyDef>;
+	var item:Array<ItemDef>;
 }

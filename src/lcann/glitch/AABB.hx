@@ -7,6 +7,7 @@ package lcann.glitch;
 class AABB{
 	public var x:Float;
 	public var y:Float;
+	public var a:Bool;
 	
 	public var aabbLeft(default, null):Float;
 	public var aabbRight(default, null):Float;
@@ -18,9 +19,14 @@ class AABB{
 		aabbRight = right;
 		aabbTop = top;
 		aabbBottom = bottom;
+		a = true;
 	}
 	
-	public function checkOverlap(other:AABB, xShift:Float = 0, yShift:Float = 0):Bool{
+	public function checkOverlap(other:AABB, xShift:Float = 0, yShift:Float = 0):Bool {
+		if(!a){
+			return false;
+		}
+		
 		if (this.x + aabbLeft > other.x + other.aabbRight + xShift) {
 			return false;
 		}
@@ -51,5 +57,12 @@ class AABB{
 	private static function moveContact(low:Float, high:Float, otherLow:Float, otherHigh:Float, max:Float):Float{
 		var d:Float = max > 0 ? otherLow - high : otherHigh - low;
 		return max > 0 ? Math.min(Math.abs(d), Math.abs(max)) : -Math.min(Math.abs(d), Math.abs(max));
+	}
+	
+	public function checkPoint(px:Float, py:Float):Bool {
+		if(!a){
+			return false;
+		}
+		return !(px < x + aabbLeft || px > x + aabbRight || py < y + aabbTop || py > y + aabbBottom);
 	}
 }

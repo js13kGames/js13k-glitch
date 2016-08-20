@@ -17,6 +17,7 @@ import lcann.glitch.level.PlatformDef;
 import lcann.glitch.resource.level.Level;
 import lcann.glitch.level.PortalDef;
 import lcann.glitch.level.EnemyDef;
+import lcann.glitch.level.ItemDef;
 #end
 
 /**
@@ -57,7 +58,8 @@ class ResBuilder {
 			platformLayer: new Array<PlatformDef>(),
 			player: new Array<Point>(),
 			portal: new Array<PortalDef>(),
-			enemy: new Array<EnemyDef>()
+			enemy: new Array<EnemyDef>(),
+			item: new Array<ItemDef>()
 		}
 		
 		for(p in res.properties.player.split(";")){
@@ -76,6 +78,8 @@ class ResBuilder {
 					buildPortalLayer(l.objects, def);
 				case "enemy":
 					buildEnemyLayer(l.objects, def);
+				case "item":
+					buildItemLayer(l.objects, def);
 			}
 		}
 		
@@ -100,7 +104,7 @@ class ResBuilder {
 						w: o.width,
 						h: o.height,
 						t: "d",
-						cv: o.properties.openVariable
+						cv: o.properties.variable
 					} );
 			}
 		}
@@ -141,6 +145,22 @@ class ResBuilder {
 				
 			}
 			
+		}
+	}
+	
+	private static function buildItemLayer(obj:Array<Object>, def:LevelDef){
+		for(o in obj){
+			switch(o.type) {
+				case "key":
+					def.item.push( { 
+						x: o.x,
+						y: o.y,
+						w: o.width,
+						h: o.height,
+						t: "k",
+						v: o.properties.variable
+					} );
+			}
 		}
 	}
 	#end

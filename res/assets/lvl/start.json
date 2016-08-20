@@ -87,7 +87,7 @@
                  "name":"",
                  "properties":
                     {
-                     "openVariable":"glitchRoute"
+                     "variable":"glitchRoute"
                     },
                  "type":"door",
                  "visible":true,

@@ -6,17 +6,25 @@ import lcann.glitch.level.Level;
  * @author Luke Cann
  */
 class Door extends Platform{
-
-	private var variable:String;
+	private var v:String;
 	
-	public function new(x:Float, y:Float, width:Float, height:Float, variable:String) {
-		super(x, y, width, height);
-		this.variable = variable;
+	public function new(x:Float, y:Float, w:Float, h:Float, v:String) {
+		super(x, y, w, h);
+		this.v = v;
+		this.a = !checkVariable();
+	}
+	
+	private inline function checkVariable(){
+		return Main.state.flags.exists(v) ? Main.state.flags[v] : false;
 	}
 	
 	override public function update(level:Level, s:Float):Void {
-		Main.c.fillStyle = "blue";
-		Main.c.fillRect(x, y, aabbRight, aabbBottom);
+		if(a){
+			Main.c.fillStyle = "blue";
+			Main.c.fillRect(x, y, aabbRight, aabbBottom);
+			
+			a = !checkVariable();
+		}
 	}
 	
 }
