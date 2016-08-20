@@ -29,6 +29,16 @@ class EnemyWalker extends Enemy {
 			}
 		}
 		
+		if(this.x + aabbLeft + mx < 30){
+			mx = (this.x + aabbLeft) - 30;
+			r = true;
+		}
+		
+		if(this.x + aabbRight + mx > Main.canvas.width - 30){
+			mx = (Main.canvas.width - 30) - (this.x + aabbRight);
+			r = false;
+		}
+		
 		this.x += mx;
 	}
 }

@@ -30,8 +30,9 @@ class ResBuilder {
 		var levels:Array<LevelDef> = new Array<LevelDef>();
 		var levelPath:String = "res/assets/lvl/";
 		for (f in FileSystem.readDirectory(levelPath)) {
-			if(new Path(levelPath + f).ext == "json"){
-				levels.push(buildLevel(levelPath, f));
+			var path:Path = new Path(levelPath + f);
+			if(path.ext == "json"){
+				levels.push(buildLevel(levelPath, path));
 			}
 		}
 		
@@ -49,12 +50,11 @@ class ResBuilder {
 	}
 	
 	#if macro
-	private static function buildLevel(dir:String, f:String):LevelDef {
-		trace(f);
-		var res:Level = Json.parse(File.getContent(dir + f));
+	private static function buildLevel(dir:String, path:Path):LevelDef {
+		var res:Level = Json.parse(File.getContent(path.toString()));
 		
 		var def:LevelDef = {
-			name: f,
+			name: path.file,
 			platformLayer: new Array<PlatformDef>(),
 			player: new Array<Point>(),
 			portal: new Array<PortalDef>(),

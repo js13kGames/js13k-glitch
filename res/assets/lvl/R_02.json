@@ -124,7 +124,7 @@
                  "name":"top left",
                  "properties":
                     {
-                     "level":"R_01.json",
+                     "level":"R_01",
                      "spawn":"1"
                     },
                  "type":"portal",
@@ -138,7 +138,7 @@
                  "name":"bottom left",
                  "properties":
                     {
-                     "level":"R_01.json",
+                     "level":"R_01",
                      "spawn":"2"
                     },
                  "type":"portal",

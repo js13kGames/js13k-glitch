@@ -39,7 +39,7 @@ class Main {
 		
 		state = {
 			flags: new Map<String, Bool>(),
-			level: "start.json",
+			level: "start",
 			spawn: 0
 		}
 		resetLevel();
