@@ -36,7 +36,7 @@ class Controls {
 			return false;
 		}
 		
-		return keyDown[keyCode] == true ? true : false;
+		return keyDown[keyCode] ? true : false;
 	}
 	
 	public function getMovement():Float{

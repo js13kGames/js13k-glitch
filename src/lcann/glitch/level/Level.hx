@@ -1,5 +1,6 @@
 package lcann.glitch.level;
 import js.html.Point;
+import lcann.glitch.AABB;
 import lcann.glitch.level.Platform;
 import lcann.glitch.level.enemy.Enemy;
 import lcann.glitch.level.enemy.EnemyWalker;
@@ -17,6 +18,7 @@ class Level {
 	public var enemy(default, null):Array<Enemy>;
 	public var item(default, null):Array<Entity>;
 	
+	public var pt(default, null):List<Entity>;
 	
 	public function new(levelDef:LevelDef, spawnIndex:Int) {
 		player = new Player(levelDef.player[spawnIndex].x, levelDef.player[spawnIndex].y);
@@ -51,6 +53,8 @@ class Level {
 					item.push(new Key(i.x, i.y, i.w, i.h, i.v));
 			}
 		}
+		
+		pt = new List<Entity>();
 	}
 	
 	public function update(s:Float):Void{
@@ -67,5 +71,24 @@ class Level {
 		}
 		
 		player.update(this, s);
+		
+		for(p in pt){
+			p.update(this, s);
+		}
+	}
+	
+	public function createDeathParts(aabb:AABB, minA:Float, maxA:Float){
+		var hqty:Int = Std.int(((aabb.x + aabb.aabbRight) - (aabb.x + aabb.aabbLeft)) / 15);
+		var vqty:Int = Std.int(((aabb.y + aabb.aabbBottom) - (aabb.y + aabb.aabbTop)) / 15);
+		
+		for (yi in 0...vqty) {
+			var y = (aabb.y + aabb.aabbTop) + yi * 15;
+			
+			for(xi in 0...hqty){
+				var x = (aabb.x + aabb.aabbLeft) + xi * 15;
+				
+				pt.push(new DeathPart(x, y, -15 + Math.random() * 30, -15 + Math.random() * 30));
+			}
+		}
 	}
 }

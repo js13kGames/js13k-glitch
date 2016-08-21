@@ -10,6 +10,8 @@ import lcann.glitch.level.Level;
  */
 class Player extends AABB implements Entity {
 	private var ySpeed:Float;
+	private var alive:Bool;
+	private var rt:Float;
 
 	public function new(x:Float, y:Float) {
 		super(-30, 30, -140, 0);
@@ -17,10 +19,20 @@ class Player extends AABB implements Entity {
 		this.y = y;
 		
 		ySpeed = 0;
+		alive = true;
 	}
 	
 	/* INTERFACE lcann.glitch.Entity */
 	public function update(level:Level, s:Float):Void {
+		if (!alive) {
+			rt += s;
+			if (rt > 2) {
+				Main.doClear = true;
+				Main.resetLevel();
+			}
+			return;
+		}
+		
 		ySpeed += 2000 * s;
 		
 		var ground:Bool = false;
@@ -60,8 +72,22 @@ class Player extends AABB implements Entity {
 			}
 		}
 		
+		for(e in level.enemy){
+			if(e.checkOverlap(this)){
+				die(level);
+			}
+		}
+		
 		Main.c.fillStyle = "white";
 		Main.c.fillRect(x - 30, y - 140, 60, 140);
+	}
+	
+	private function die(level:Level){
+		alive = false;
+		rt = 0;
+		level.createDeathParts(this, 0, 0);
+		
+		Main.doClear = false;
 	}
 	
 }
