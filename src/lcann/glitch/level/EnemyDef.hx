@@ -10,4 +10,5 @@ typedef EnemyDef ={
 	var w:Float;
 	var h:Float;
 	var t:String;
+	var r:Bool;
 }

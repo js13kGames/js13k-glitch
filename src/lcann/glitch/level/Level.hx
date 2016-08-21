@@ -42,7 +42,7 @@ class Level {
 		for(e in levelDef.enemy){
 			switch(e.t){
 				case "w":
-					enemy.push(new EnemyWalker(e.x, e.y, e.w, e.h));
+					enemy.push(new EnemyWalker(e.x, e.y, e.w, e.h, e.r));
 			}
 		}
 		

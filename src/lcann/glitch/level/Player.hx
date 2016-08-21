@@ -75,6 +75,7 @@ class Player extends AABB implements Entity {
 		for(e in level.enemy){
 			if(e.checkOverlap(this)){
 				die(level);
+				return;
 			}
 		}
 		

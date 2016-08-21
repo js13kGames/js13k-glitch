@@ -140,11 +140,10 @@ class ResBuilder {
 								"w";
 							default:
 								"";
-						}
+						},
+						r: o.properties.direction == "R"
 					});
-				
 			}
-			
 		}
 	}
 	
