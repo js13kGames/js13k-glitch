@@ -13,6 +13,7 @@ class Controls {
 	private var leftKey:Int = KeyboardEvent.DOM_VK_LEFT;
 	private var rightKey:Int = KeyboardEvent.DOM_VK_RIGHT;
 	private var jumpKey:Int = KeyboardEvent.DOM_VK_UP;
+	private var shootKey:Int = KeyboardEvent.DOM_VK_Z;
 	
 	public function new() {
 		keyDown = new Array<Bool>();
@@ -54,5 +55,9 @@ class Controls {
 	
 	public function getJump():Bool{
 		return isKeyDown(jumpKey);
+	}
+	
+	public function getShoot():Bool{
+		return isKeyDown(shootKey);
 	}
 }

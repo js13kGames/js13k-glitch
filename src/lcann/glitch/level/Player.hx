@@ -12,6 +12,8 @@ class Player extends AABB implements Entity {
 	private var ySpeed:Float;
 	private var alive:Bool;
 	private var rt:Float;
+	private var cs:Bool;
+	private var fr:Bool;
 
 	public function new(x:Float, y:Float) {
 		super(-30, 30, -140, 0);
@@ -20,6 +22,8 @@ class Player extends AABB implements Entity {
 		
 		ySpeed = 0;
 		alive = true;
+		cs = true;
+		fr = true;
 	}
 	
 	/* INTERFACE lcann.glitch.Entity */
@@ -39,6 +43,9 @@ class Player extends AABB implements Entity {
 		var mx:Float = Main.controls.getMovement() * 480 * s;
 		var my:Float = ySpeed * s;
 		
+		if(mx != 0){
+			fr = mx > 0;
+		}
 		
 		for(p in level.platform){
 			if (p.checkOverlap(this, 0, my)) {
@@ -77,6 +84,15 @@ class Player extends AABB implements Entity {
 				die(level);
 				return;
 			}
+		}
+		
+		if(Main.controls.getShoot()){
+			if(cs){
+				cs = false;
+				level.pb.add(new PlayerBullet(x, y -70, fr ? 1000 : -1000, 0));
+			}
+		}else{
+			cs = true;
 		}
 		
 		Main.c.fillStyle = "white";

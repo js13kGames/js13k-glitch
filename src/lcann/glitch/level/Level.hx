@@ -19,6 +19,8 @@ class Level {
 	public var item(default, null):Array<Entity>;
 	
 	public var pt(default, null):List<Entity>;
+	public var pb(default, null):List<Entity>;
+	public var eb(default, null):List<Entity>;
 	
 	public function new(levelDef:LevelDef, spawnIndex:Int) {
 		player = new Player(levelDef.player[spawnIndex].x, levelDef.player[spawnIndex].y);
@@ -55,6 +57,8 @@ class Level {
 		}
 		
 		pt = new List<Entity>();
+		pb = new List<Entity>();
+		eb = new List<Entity>();
 	}
 	
 	public function update(s:Float):Void{
@@ -68,6 +72,14 @@ class Level {
 		
 		for(i in item){
 			i.update(this, s);
+		}
+		
+		for(b in pb){
+			b.update(this, s);
+		}
+		
+		for(b in eb){
+			b.update(this, s);
 		}
 		
 		player.update(this, s);
