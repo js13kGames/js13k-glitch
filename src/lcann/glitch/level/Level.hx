@@ -15,12 +15,12 @@ class Level {
 	
 	public var platform(default, null):Array<Platform>;
 	public var portal(default, null):Array<Portal>;
-	public var enemy(default, null):Array<Enemy>;
+	public var enemy(default, null):List<Enemy>;
 	public var item(default, null):Array<Entity>;
 	
 	public var pt(default, null):List<Entity>;
-	public var pb(default, null):List<Entity>;
-	public var eb(default, null):List<Entity>;
+	public var pb(default, null):List<Bullet>;
+	public var eb(default, null):List<Bullet>;
 	
 	public function new(levelDef:LevelDef, spawnIndex:Int) {
 		player = new Player(levelDef.player[spawnIndex].x, levelDef.player[spawnIndex].y);
@@ -40,7 +40,7 @@ class Level {
 			portal.push(new Portal(p.x, p.y, p.w, p.h, p.t, p.l));
 		}
 		
-		enemy = new Array<Enemy>();
+		enemy = new List<Enemy>();
 		for(e in levelDef.enemy){
 			switch(e.t){
 				case "w":
@@ -57,8 +57,8 @@ class Level {
 		}
 		
 		pt = new List<Entity>();
-		pb = new List<Entity>();
-		eb = new List<Entity>();
+		pb = new List<Bullet>();
+		eb = new List<Bullet>();
 	}
 	
 	public function update(s:Float):Void{
