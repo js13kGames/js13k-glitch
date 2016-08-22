@@ -3,6 +3,7 @@ import js.html.Point;
 import lcann.glitch.AABB;
 import lcann.glitch.level.Platform;
 import lcann.glitch.level.enemy.Enemy;
+import lcann.glitch.level.enemy.EnemyGun;
 import lcann.glitch.level.enemy.EnemyWalker;
 import lcann.glitch.level.Entity;
 
@@ -45,6 +46,8 @@ class Level {
 			switch(e.t){
 				case "w":
 					enemy.push(new EnemyWalker(e.x, e.y, e.w, e.h, e.r));
+				case "g":
+					enemy.push(new EnemyGun(e.x, e.y, e.w, e.h, e.r));
 			}
 		}
 		

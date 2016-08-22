@@ -13,7 +13,7 @@ class Enemy extends AABB implements Entity {
 
 	public function new(x:Float, y:Float, width:Float, height:Float) {
 		super( -width / 2, width / 2, -height, 0);
-		this.x = x;
+		this.x = x + width;
 		this.y = y;
 		
 		this.ht = 0;

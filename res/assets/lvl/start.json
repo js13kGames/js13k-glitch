@@ -84,10 +84,10 @@
                 }, 
                 {
                  "height":240,
-                 "name":"",
+                 "name":"R_B_Door",
                  "properties":
                     {
-                     "variable":"glitchRoute"
+                     "variable":"R_B"
                     },
                  "type":"door",
                  "visible":true,

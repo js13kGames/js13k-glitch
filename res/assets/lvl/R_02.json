@@ -84,7 +84,7 @@
                 }, 
                 {
                  "height":240,
-                 "name":"",
+                 "name":"R_02_Door_L",
                  "properties":
                     {
                      "variable":"R_02_key"
@@ -97,7 +97,7 @@
                 }, 
                 {
                  "height":240,
-                 "name":"",
+                 "name":"R_02_Door_R",
                  "properties":
                     {
                      "variable":"R_02_key"

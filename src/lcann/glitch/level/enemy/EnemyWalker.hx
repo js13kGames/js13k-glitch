@@ -24,16 +24,18 @@ class EnemyWalker extends Enemy {
 		
 		var ledge = true;
 		
-		for(p in level.platform){
-			if (p.checkOverlap(this, mx, -1)) {
+		for (p in level.platform) {
+			if(p.checkOverlap(this, mx > 0 ? mx - this.aabbLeft*2 : mx - this.aabbRight*2, 10)){
+				ledge = false;
+			}
+			
+			if(p.checkOverlap(this, mx, -1)){
 				r = mx < 0;
 				mx = this.moveContactX(p, mx);
 				break;
 			}
 			
-			if(p.checkOverlap(this, mx > 0 ? mx - this.aabbLeft*2 : mx - this.aabbRight*2, 10)){
-				ledge = false;
-			}
+			
 		}
 		
 		if(ledge){

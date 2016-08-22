@@ -138,6 +138,8 @@ class ResBuilder {
 						t: switch(o.name){
 							case "walk":
 								"w";
+							case "gun":
+								"g";
 							default:
 								"";
 						},
