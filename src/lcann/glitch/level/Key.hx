@@ -16,15 +16,10 @@ class Key extends AABB implements Entity{
 		this.y = y;
 		this.v = v;
 		
-		a = !checkVariable();
-	}
-	
-	private inline function checkVariable(){
-		return Main.state.flags.exists(v) ? Main.state.flags[v] : false;
+		a = !Main.checkStateFlag(v);
 	}
 	
 	/* INTERFACE lcann.glitch.level.Entity */
-	
 	public function update(level:Level, s:Float):Void {
 		if (a) {
 			Main.c.fillStyle = "yellow";

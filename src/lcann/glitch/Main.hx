@@ -88,4 +88,8 @@ class Main {
 		
 		Browser.window.requestAnimationFrame(step);
 	}
+	
+	static public function checkStateFlag(f:String):Bool{
+		return Main.state.flags.exists(f) ? Main.state.flags[f] : false;
+	}
 }

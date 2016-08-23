@@ -11,11 +11,7 @@ class Door extends Platform{
 	public function new(x:Float, y:Float, w:Float, h:Float, v:String) {
 		super(x, y, w, h);
 		this.v = v;
-		this.a = !checkVariable();
-	}
-	
-	private inline function checkVariable(){
-		return Main.state.flags.exists(v) ? Main.state.flags[v] : false;
+		this.a = !Main.checkStateFlag(v);
 	}
 	
 	override public function update(level:Level, s:Float):Void {
@@ -23,7 +19,7 @@ class Door extends Platform{
 			Main.c.fillStyle = "blue";
 			Main.c.fillRect(x, y, aabbRight, aabbBottom);
 			
-			a = !checkVariable();
+			a = !Main.checkStateFlag(v);
 		}
 	}
 	

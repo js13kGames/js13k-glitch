@@ -86,7 +86,14 @@ class Player extends AABB implements Entity {
 			}
 		}
 		
-		if(Main.controls.getShoot()){
+		for(b in level.eb){
+			if(b.checkOverlap(this)){
+				die(level);
+				return;
+			}
+		}
+		
+		if(Main.controls.getShoot() && Main.checkStateFlag("gun")){
 			if(cs){
 				cs = false;
 				level.pb.add(new PlayerBullet(x, y -70, fr ? 1000 : -1000, 0));
