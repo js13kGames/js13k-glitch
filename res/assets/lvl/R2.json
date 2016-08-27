@@ -87,7 +87,7 @@
                  "name":"R_02_Door_L",
                  "properties":
                     {
-                     "variable":"R_02_key"
+                     "variable":"R2K"
                     },
                  "type":"door",
                  "visible":true,
@@ -100,7 +100,7 @@
                  "name":"R_02_Door_R",
                  "properties":
                     {
-                     "variable":"R_02_key"
+                     "variable":"R2K"
                     },
                  "type":"door",
                  "visible":true,
@@ -124,7 +124,7 @@
                  "name":"top left",
                  "properties":
                     {
-                     "level":"R_01",
+                     "level":"R1",
                      "spawn":"1"
                     },
                  "type":"portal",
@@ -138,7 +138,7 @@
                  "name":"bottom left",
                  "properties":
                     {
-                     "level":"R_01",
+                     "level":"R1",
                      "spawn":"2"
                     },
                  "type":"portal",
@@ -152,7 +152,7 @@
                  "name":"right",
                  "properties":
                     {
-                     "level":"R_03",
+                     "level":"R3",
                      "spawn":"0"
                     },
                  "type":"portal",
@@ -201,7 +201,7 @@
                  "name":"R_02_key",
                  "properties":
                     {
-                     "variable":"R_02_key"
+                     "variable":"R2K"
                     },
                  "type":"key",
                  "visible":true,

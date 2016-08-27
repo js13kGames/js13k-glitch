@@ -16,59 +16,7 @@
          "name":"platform",
          "objects":[
                 {
-                 "height":60,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":1920,
-                 "x":0,
-                 "y":0
-                }, 
-                {
-                 "height":120,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":240,
-                 "x":0,
-                 "y":960
-                }, 
-                {
-                 "height":120,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":240,
-                 "x":1680,
-                 "y":960
-                }, 
-                {
-                 "height":60,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":1440,
-                 "x":240,
-                 "y":1020
-                }, 
-                {
-                 "height":660,
+                 "height":720,
                  "name":"",
                  "properties":
                     {
@@ -78,7 +26,20 @@
                  "visible":true,
                  "width":60,
                  "x":0,
-                 "y":60
+                 "y":0
+                }, 
+                {
+                 "height":60,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":1860,
+                 "x":60,
+                 "y":0
                 }, 
                 {
                  "height":660,
@@ -92,6 +53,19 @@
                  "width":60,
                  "x":1860,
                  "y":60
+                }, 
+                {
+                 "height":120,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":1920,
+                 "x":0,
+                 "y":960
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -102,35 +76,26 @@
         }, 
         {
          "height":36,
-         "name":"enemy",
+         "name":"item",
          "objects":[
                 {
                  "height":60,
-                 "name":"walk",
+                 "name":"gun",
                  "properties":
                     {
-                     "direction":"R"
+                     "variable":"gun"
                     },
-                 "type":"enemy",
+                 "type":"key",
                  "visible":true,
                  "width":60,
-                 "x":420,
-                 "y":960
-                }, 
-                {
-                 "height":60,
-                 "name":"walk",
-                 "properties":
-                    {
-                     "direction":"L"
-                    },
-                 "type":"enemy",
-                 "visible":true,
-                 "width":60,
-                 "x":1440,
-                 "y":960
+                 "x":930,
+                 "y":840
                 }],
          "opacity":1,
+         "properties":
+            {
+             "player":"1,32"
+            },
          "type":"objectgroup",
          "visible":true,
          "width":64,
@@ -143,30 +108,30 @@
          "objects":[
                 {
                  "height":240,
-                 "name":"right",
+                 "name":"Left",
                  "properties":
                     {
-                     "level":"R_06",
-                     "spawn":"0"
-                    },
-                 "type":"portal",
-                 "visible":true,
-                 "width":60,
-                 "x":1950,
-                 "y":720
-                }, 
-                {
-                 "height":240,
-                 "name":"left",
-                 "properties":
-                    {
-                     "level":"R_04",
+                     "level":"R5",
                      "spawn":"1"
                     },
                  "type":"portal",
                  "visible":true,
                  "width":60,
                  "x":-90,
+                 "y":720
+                }, 
+                {
+                 "height":240,
+                 "name":"Left",
+                 "properties":
+                    {
+                     "level":"R7",
+                     "spawn":"0"
+                    },
+                 "type":"portal",
+                 "visible":true,
+                 "width":60,
+                 "x":1950,
                  "y":720
                 }],
          "opacity":1,
