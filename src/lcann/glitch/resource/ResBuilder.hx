@@ -140,6 +140,8 @@ class ResBuilder {
 								"w";
 							case "gun":
 								"g";
+							case "burst":
+								"b";
 							default:
 								"";
 						},

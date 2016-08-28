@@ -154,6 +154,30 @@
          "width":64,
          "x":0,
          "y":0
+        }, 
+        {
+         "height":36,
+         "name":"enemy",
+         "objects":[
+                {
+                 "height":90,
+                 "name":"burst",
+                 "properties":
+                    {
+                     "direction":"L"
+                    },
+                 "type":"enemy",
+                 "visible":true,
+                 "width":90,
+                 "x":1530,
+                 "y":450
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":64,
+         "x":0,
+         "y":0
         }],
  "orientation":"orthogonal",
  "properties":

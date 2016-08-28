@@ -7,17 +7,19 @@ import lcann.glitch.level.Level;
  */
 class EnemyWalker extends Enemy {
 	private var r:Bool;
+	private var xs:Float;
 
 	public function new(x:Float, y:Float, width:Float, height:Float, right:Bool ) {
 		super(x, y, width, height);
 		r = right;
+		xs = 400;
 		hp = 2;
 	}
 	
 	override public function update(level:Level, s:Float):Void {
 		super.update(level, s);
 		
-		var mx = 400 * s;
+		var mx = xs * s;
 		if(!r){
 			mx = -mx;
 		}
