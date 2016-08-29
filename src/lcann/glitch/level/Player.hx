@@ -51,6 +51,11 @@ class Player extends AABB implements Entity {
 			if (p.checkOverlap(this, 0, my)) {
 				if(ySpeed > 0){
 					ground = true;
+					
+					var mp:MovingPlatform = Std.instance(p, MovingPlatform);
+					if(mp != null){
+						mx += mp.xs * s;
+					}
 				}
 				//Move to contact
 				my = this.moveContactY(p, my);

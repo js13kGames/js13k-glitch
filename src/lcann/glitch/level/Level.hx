@@ -7,6 +7,7 @@ import lcann.glitch.level.enemy.EnemyBurster;
 import lcann.glitch.level.enemy.EnemyGun;
 import lcann.glitch.level.enemy.EnemyWalker;
 import lcann.glitch.level.Entity;
+import lcann.glitch.level.enemy.KillRegion;
 
 /**
  * ...
@@ -15,7 +16,7 @@ import lcann.glitch.level.Entity;
 class Level {
 	public var player(default, null):Player;
 	
-	public var platform(default, null):Array<Platform>;
+	public var platform(default, null):List<Platform>;
 	public var portal(default, null):Array<Portal>;
 	public var enemy(default, null):List<Enemy>;
 	public var item(default, null):Array<Entity>;
@@ -27,13 +28,15 @@ class Level {
 	public function new(levelDef:LevelDef, spawnIndex:Int) {
 		player = new Player(levelDef.player[spawnIndex].x, levelDef.player[spawnIndex].y);
 		
-		platform = new Array<Platform>();
+		platform = new List<Platform>();
 		for (p in levelDef.platformLayer) {
 			switch(p.t) {
 				case "p":
 					platform.push(new Platform(p.x, p.y, p.w, p.h));
 				case "d":
 					platform.push(new Door(p.x, p.y, p.w, p.h, p.cv));
+				case "s":
+					platform.push(new PlatformSpawner(p.x, p.y, p.w, p.h, p.r, Std.parseFloat(p.cv)));
 			}
 		}
 		
@@ -51,6 +54,8 @@ class Level {
 					enemy.push(new EnemyGun(e.x, e.y, e.w, e.h, e.r));
 				case "b":
 					enemy.push(new EnemyBurster(e.x, e.y, e.w, e.h, e.r));
+				case "k":
+					enemy.push(new KillRegion(e.x, e.y, e.w, e.h));
 			}
 		}
 		

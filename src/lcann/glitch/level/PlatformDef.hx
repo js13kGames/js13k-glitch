@@ -11,4 +11,5 @@ typedef PlatformDef ={
 	var h:Float;
 	var t:String;//type
 	@:optional var cv:String;//condition variable;
+	@:optional var r:Bool;//direction == right
 }

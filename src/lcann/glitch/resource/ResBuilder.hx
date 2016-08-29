@@ -73,7 +73,7 @@ class ResBuilder {
 		for(l in res.layers){
 			switch(l.name){
 				case "platform":
-					buildPlatformLayer(l.objects, def);
+					buildPlatformLayer(l.objects, def, res);
 				case "portal":
 					buildPortalLayer(l.objects, def);
 				case "enemy":
@@ -86,7 +86,7 @@ class ResBuilder {
 		return def;
 	}
 	
-	private static function buildPlatformLayer(obj:Array<Object>, def:LevelDef) {
+	private static function buildPlatformLayer(obj:Array<Object>, def:LevelDef, res:Level) {
 		for (o in obj) {
 			switch(o.type) {
 				case "platform":
@@ -105,6 +105,16 @@ class ResBuilder {
 						h: o.height,
 						t: "d",
 						cv: o.properties.variable
+					} );
+				case "platformSpawner":
+					def.platformLayer.push( { 
+						x: o.x,
+						y: o.y,
+						w: o.width,
+						h: o.height,
+						t: "s",
+						cv: Std.string(Std.parseInt(o.properties.variable) * res.tilewidth),
+						r: o.properties.direction == "R"
 					} );
 			}
 		}
@@ -142,6 +152,8 @@ class ResBuilder {
 								"g";
 							case "burst":
 								"b";
+							case "kill":
+								"k";
 							default:
 								"";
 						},

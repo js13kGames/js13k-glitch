@@ -13,7 +13,7 @@ class EnemyGun extends Enemy{
 		this.r = r;
 		
 		hp = 10;
-		d = 1.5;
+		d = 0.5;
 	}
 	
 	override public function update(level:Level, s:Float):Void {
