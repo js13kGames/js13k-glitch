@@ -1,6 +1,6 @@
 package lcann.glitch;
 
-import js.Lib;
+import js.Browser;
 import js.html.CanvasElement;
 import js.html.CanvasRenderingContext2D;
 import js.Browser;

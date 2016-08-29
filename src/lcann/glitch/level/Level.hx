@@ -1,7 +1,7 @@
 package lcann.glitch.level;
 import js.html.Point;
 import lcann.glitch.AABB;
-import lcann.glitch.level.Platform;
+import lcann.glitch.level.Level;
 import lcann.glitch.level.enemy.Enemy;
 import lcann.glitch.level.enemy.EnemyBurster;
 import lcann.glitch.level.enemy.EnemyGun;
