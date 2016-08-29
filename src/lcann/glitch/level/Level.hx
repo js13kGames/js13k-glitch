@@ -32,11 +32,11 @@ class Level {
 		for (p in levelDef.platformLayer) {
 			switch(p.t) {
 				case "p":
-					platform.push(new Platform(p.x, p.y, p.w, p.h));
+					platform.add(new Platform(p.x, p.y, p.w, p.h));
 				case "d":
-					platform.push(new Door(p.x, p.y, p.w, p.h, p.cv));
+					platform.add(new Door(p.x, p.y, p.w, p.h, p.cv));
 				case "s":
-					platform.push(new PlatformSpawner(p.x, p.y, p.w, p.h, p.r, Std.parseFloat(p.cv)));
+					platform.add(new PlatformSpawner(p.x, p.y, p.w, p.h, p.r, Std.parseFloat(p.cv)));
 			}
 		}
 		
@@ -49,13 +49,13 @@ class Level {
 		for(e in levelDef.enemy){
 			switch(e.t){
 				case "w":
-					enemy.push(new EnemyWalker(e.x, e.y, e.w, e.h, e.r));
+					enemy.add(new EnemyWalker(e.x, e.y, e.w, e.h, e.r));
 				case "g":
-					enemy.push(new EnemyGun(e.x, e.y, e.w, e.h, e.r));
+					enemy.add(new EnemyGun(e.x, e.y, e.w, e.h, e.r));
 				case "b":
-					enemy.push(new EnemyBurster(e.x, e.y, e.w, e.h, e.r));
+					enemy.add(new EnemyBurster(e.x, e.y, e.w, e.h, e.r));
 				case "k":
-					enemy.push(new KillRegion(e.x, e.y, e.w, e.h));
+					enemy.add(new KillRegion(e.x, e.y, e.w, e.h));
 			}
 		}
 		
@@ -110,7 +110,7 @@ class Level {
 			for(xi in 0...hqty){
 				var x = (aabb.x + aabb.aabbLeft) + xi * 15;
 				
-				pt.push(new DeathPart(x, y, -15 + Math.random() * 30, -15 + Math.random() * 30));
+				pt.add(new DeathPart(x, y, -15 + Math.random() * 30, -15 + Math.random() * 30));
 			}
 		}
 	}

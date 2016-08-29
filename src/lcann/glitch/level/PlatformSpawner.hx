@@ -23,7 +23,7 @@ class PlatformSpawner extends Platform {
 		c -= s;
 		if(c < 0){
 			c = 10;
-			level.platform.push(new MovingPlatform(x, y, aabbRight, aabbBottom, r, l));
+			level.platform.add(new MovingPlatform(x, y, aabbRight, aabbBottom, r, l));
 		}
 	}
 }

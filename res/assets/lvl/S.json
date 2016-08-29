@@ -112,7 +112,7 @@
                  "properties":
                     {
                      "level":"L1",
-                     "spawn":"1"
+                     "spawn":"0"
                     },
                  "type":"portal",
                  "visible":true,
