@@ -46,7 +46,7 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Webserver" />
-    <option testMovieCommand="bin/index.html" />
+    <option testMovieCommand="bin/index_min.html" />
   </options>
   <!-- Plugin storage -->
   <storage />

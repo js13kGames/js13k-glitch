@@ -3,55 +3,58 @@ import sys
 import zipfile
 import subprocess
 
-def zipdir(path, ziph):
-	for root, dirs, files in os.walk(path):
-		for file in files:
-			fname = file
-			if os.path.splitext(file)[1] == ".js":
-				fname = os.path.splitext(file)[0] + "_min.js"
-				
-				#subprocess.call([
-				#	"java", "-jar", "util/compiler.jar", 
-				#	"--compilation_level", #"SIMPLE_OPTIMIZATIONS", #
-				#	"ADVANCED_OPTIMIZATIONS", 
-				#	"--js_output_file=" + os.path.join(root, fname), 
-				#	os.path.join(root, file)
-				#])
-				subprocess.call([
-					"uglifyjs",
-					"--compress",
-					"--mangle",
-					#"--mangle-props",
-					"--o", os.path.join(root, fname),
-					os.path.join(root, file)
-				], shell=True)
-			
-			if os.path.splitext(file)[1] == ".html":
-				fname = os.path.splitext(file)[0] + "_min.html"
-				subprocess.call([
-					"html-minifier", 
-					"--collaspse-boolean-attributes",
-					"--collapse-inline-tag-whitespace",
-					"--collapse-whitespace",
-					"--decode-entities",
-					"--html5",
-					"--minify-css",
-					"--minify-js",
-					"--remove-attribute-quotes",
-					"--remove-comments",
-					"--remove-empty-attributes",
-					"--remove-optional-tags",
-					"--remove-redundant-attributes",
-					"--use-short-doctype",
-					"-o", os.path.join(root, fname), 
-					os.path.join(root, file)
-				], shell=True)
-			
-			ziph.write(os.path.join(root, fname), file)
-
 if __name__ == '__main__':
+	jsFile = "bin/g.js"
+	jsFileMin = "bin/g_min.js"
+	indexFile = "bin/index.html"
+	indexFileMin = "bin/index_min.html"
+	
+	#minify javascript
+	subprocess.call([
+		"uglifyjs",
+		"--compress",
+		"--mangle",
+		"--o", jsFileMin,
+		jsFile
+	], shell=True)
+	
+	#inline javascript in index
+	jsFileIn = open(jsFileMin, 'r')
+	jsData = jsFileIn.read()
+	jsFileIn.close()
+	
+	indexFileIn = open(indexFile, 'r')
+	indexData = indexFileIn.read()
+	indexFileIn.close()
+
+	inlineIndexData = indexData.replace("{g.js}", jsData)
+	
+	indexFileOut = open(indexFile, 'w')
+	indexFileOut.write(inlineIndexData)
+	indexFileOut.close()
+
+	#minify index
+	subprocess.call([
+		"html-minifier", 
+		"--collaspse-boolean-attributes",
+		"--collapse-inline-tag-whitespace",
+		"--collapse-whitespace",
+		"--decode-entities",
+		"--html5",
+		"--minify-css",
+		"--minify-js",
+		"--remove-attribute-quotes",
+		"--remove-comments",
+		"--remove-empty-attributes",
+		"--remove-optional-tags",
+		"--remove-redundant-attributes",
+		"--use-short-doctype",
+		"-o", indexFileMin, 
+		indexFile
+	], shell=True)
+	
 	zipf = zipfile.ZipFile('util/build.zip', 'w', zipfile.ZIP_DEFLATED)
-	zipdir('bin/', zipf)
+	zipf.write(indexFileMin, "index.html")
 	zipf.close()
 	
 	statInfo = os.stat("util/build.zip")
