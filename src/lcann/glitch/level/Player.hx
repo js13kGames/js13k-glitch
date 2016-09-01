@@ -107,6 +107,12 @@ class Player extends AABB implements Entity {
 			cs = true;
 		}
 		
+		if(Main.controls.getGlitch() && Main.checkStateFlag("glitch")){
+			Main.doClear = false;
+		}else{
+			Main.doClear = true;
+		}
+		
 		Main.c.fillStyle = "white";
 		Main.c.fillRect(x - 30, y - 140, 60, 140);
 	}

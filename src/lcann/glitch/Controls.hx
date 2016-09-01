@@ -8,15 +8,16 @@ import js.html.KeyboardEvent;
  * @author Luke Cann
  */
 class Controls {
-	private var keyDown:Array<Bool>;
+	private var kd:Array<Bool>;
 	
-	private var leftKey:Int = KeyboardEvent.DOM_VK_LEFT;
-	private var rightKey:Int = KeyboardEvent.DOM_VK_RIGHT;
-	private var jumpKey:Int = KeyboardEvent.DOM_VK_UP;
-	private var shootKey:Int = KeyboardEvent.DOM_VK_Z;
+	private var lk:Int = KeyboardEvent.DOM_VK_LEFT;
+	private var rk:Int = KeyboardEvent.DOM_VK_RIGHT;
+	private var jk:Int = KeyboardEvent.DOM_VK_UP;
+	private var sk:Int = KeyboardEvent.DOM_VK_Z;
+	private var gk:Int = KeyboardEvent.DOM_VK_X;
 	
 	public function new() {
-		keyDown = new Array<Bool>();
+		kd = new Array<Bool>();
 		
 		Browser.window.addEventListener("keydown", onKeyDown);
 		Browser.window.addEventListener("keyup", onKeyUp);
@@ -24,29 +25,29 @@ class Controls {
 	
 	private function onKeyDown(e:KeyboardEvent):Void{
 		e.preventDefault();
-		keyDown[e.keyCode] = true;
+		kd[e.keyCode] = true;
 	}
 	
 	private function onKeyUp(e:KeyboardEvent):Void{
 		e.preventDefault();
-		keyDown[e.keyCode] = false;
+		kd[e.keyCode] = false;
 	}
 	
 	private function isKeyDown(keyCode:Int):Bool{
-		if(keyDown.length < keyCode){
+		if(kd.length < keyCode){
 			return false;
 		}
 		
-		return keyDown[keyCode] ? true : false;
+		return kd[keyCode] ? true : false;
 	}
 	
 	public function getMovement():Float{
 		var m:Float = 0;
-		if(isKeyDown(leftKey)){
+		if(isKeyDown(lk)){
 			m -= 1;
 		}
 		
-		if(isKeyDown(rightKey)){
+		if(isKeyDown(rk)){
 			m += 1;
 		}
 		
@@ -54,10 +55,14 @@ class Controls {
 	}
 	
 	public function getJump():Bool{
-		return isKeyDown(jumpKey);
+		return isKeyDown(jk);
 	}
 	
 	public function getShoot():Bool{
-		return isKeyDown(shootKey);
+		return isKeyDown(sk);
+	}
+	
+	public function getGlitch():Bool{
+		return isKeyDown(gk);
 	}
 }

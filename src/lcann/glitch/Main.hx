@@ -74,7 +74,9 @@ class Main {
 		lms = ms;
 		
 		if (doClear) {
-			if(!isClear){
+			if (!isClear) {
+				c.fillStyle = "rgba(0,0,0,0.5)";
+				c.fillRect(0, 0, canvas.width, canvas.height);
 				clearData = c.getImageData(0, 0, canvas.width, canvas.height);
 			}
 			c.putImageData(clearData, 0, 0);
