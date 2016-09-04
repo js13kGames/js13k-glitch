@@ -28,6 +28,7 @@ class Key extends AABB implements Entity{
 			if(level.player.checkOverlap(this)){
 				Main.state.flags[v] = true;
 				a = false;
+				Main.sound.play("key");
 			}
 		}
 	}

@@ -27,12 +27,14 @@ class Enemy extends AABB implements Entity {
 				level.pb.remove(b);
 				hp--;
 				ht = 0.2;
+				Main.sound.play("hit");
 			}
 		}
 		
 		if(hp == 0){
 			level.createDeathParts(this, 0, 0);
 			level.enemy.remove(this);
+			Main.sound.play("eki");
 		}
 		
 		if(ht > 0){

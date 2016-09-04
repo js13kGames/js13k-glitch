@@ -31,6 +31,8 @@ class EnemyBurster extends EnemyWalker{
 				var dir = Math.PI + (Math.PI / 4) * i;
 				level.eb.add(new EnemyBurstBullet(x, y + aabbTop, Math.cos(dir) * 500, Math.sin(dir) * 500));
 			}
+			
+			Main.sound.play("bst");
 		}
 	}
 	

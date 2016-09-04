@@ -1,5 +1,5 @@
 package lcann.glitch.level.enemy;
-
+import lcann.glitch.level.Level;
 /**
  * ...
  * @author Luke Cann
@@ -22,7 +22,8 @@ class EnemyGun extends Enemy{
 		
 		if(d <= 0){
 			d = 1.5;
-			level.eb.add(new EnemyBullet(x, y + aabbTop/2, r ? 500 : -500, 0));
+			level.eb.add(new EnemyBullet(x, y + aabbTop / 2, r ? 500 : -500, 0));
+			Main.sound.play("esh");
 		}
 	}
 }

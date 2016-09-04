@@ -3,11 +3,11 @@ package lcann.glitch;
 import js.Browser;
 import js.html.CanvasElement;
 import js.html.CanvasRenderingContext2D;
-import js.Browser;
 import js.html.ImageData;
 import lcann.glitch.level.Level;
 import lcann.glitch.level.LevelDef;
 import lcann.glitch.resource.ResBuilder;
+
 
 /**
  * ...
@@ -26,6 +26,7 @@ class Main {
 	private static var lms:Float;
 	
 	public static var controls(default, null):Controls;
+	public static var sound(default, null):SoundManager;
 	public static var state(default, null):State;
 	private static var level:Level;
 	
@@ -36,6 +37,7 @@ class Main {
 		c.imageSmoothingEnabled = false;
 		
 		controls = new Controls();
+		sound = new SoundManager(r.snd);
 		
 		state = {
 			flags: new Map<String, Bool>(),

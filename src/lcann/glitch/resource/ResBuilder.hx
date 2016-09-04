@@ -3,14 +3,14 @@ package lcann.glitch.resource;
 #if macro
 import haxe.macro.Expr.Field;
 import lcann.glitch.resource.level.Object;
-
+import haxe.io.Bytes;
 import haxe.macro.Context;
 import haxe.macro.Expr.TypeDefinition;
-import htmlparser.HtmlDocument;
 import sys.io.File;
 import haxe.io.Path;
 import sys.FileSystem;
 import haxe.Json;
+import haxe.crypto.Base64;
 
 import lcann.glitch.level.LevelDef;
 import lcann.glitch.level.PlatformDef;
@@ -18,6 +18,8 @@ import lcann.glitch.resource.level.Level;
 import lcann.glitch.level.PortalDef;
 import lcann.glitch.level.EnemyDef;
 import lcann.glitch.level.ItemDef;
+
+import lcann.glitch.SoundDef;
 #end
 
 /**
@@ -36,15 +38,24 @@ class ResBuilder {
 			}
 		}
 		
+		var sounds:Array<SoundDef> = new Array<SoundDef>();
+		var soundPath:String = "res/assets/snd/";
+		for (f in FileSystem.readDirectory(soundPath)) {
+			var path:Path = new Path(soundPath + f);
+			if(path.ext == "txt"){
+				sounds.push(buildSound(path));
+			}
+		}
+		
 		var c = macro class R {
-			public var levels:Array<lcann.glitch.level.LevelDef> = $v{levels};
+			public var levels:Array<lcann.glitch.level.LevelDef> = $v { levels };
+			public var snd:Array<lcann.glitch.SoundDef> = $v { sounds };
 			public function new(){}
 		}
 		
 		Context.defineType(c);
 		
-		var doc = new HtmlDocument(File.getContent("res/index.html"));
-		File.saveContent("bin/index.html", doc.toString());
+		File.saveContent("bin/index.html", File.getContent("res/index.html"));
 		
 		return macro new R();
 	}
@@ -176,6 +187,20 @@ class ResBuilder {
 						v: o.properties.variable
 					} );
 			}
+		}
+	}
+	
+	private static function buildSound(path:Path):SoundDef {
+		var txt = File.getContent(path.toString());
+		
+		var arr:Array<Float> = new Array<Float>();
+		for(t in txt.split(",")){
+			arr.push(t.length > 0 ? Std.parseFloat(t) : 0);
+		}
+		
+		return {
+			n: path.file,
+			d: arr
 		}
 	}
 	#end

@@ -30,7 +30,8 @@ class Bullet extends AABB implements Entity{
 		}
 		
 		for(p in level.platform){
-			if(p.checkOverlap(this)){
+			if (p.checkOverlap(this)) {
+				Main.sound.play("wal");
 				destroy(level);
 				return;
 			}

@@ -1,5 +1,5 @@
 package lcann.glitch.level;
-
+import lcann.glitch.level.Level;
 import lcann.glitch.AABB;
 import lcann.glitch.level.Entity;
 import lcann.glitch.level.Level;
@@ -73,6 +73,7 @@ class Player extends AABB implements Entity {
 		if(ground && Main.controls.getJump()){
 			ySpeed = -1100;
 			my += ySpeed * s;
+			Main.sound.play("jmp");
 		}
 		
 		x += mx;
@@ -102,6 +103,7 @@ class Player extends AABB implements Entity {
 			if(cs){
 				cs = false;
 				level.pb.add(new PlayerBullet(x, y -70, fr ? 1000 : -1000, 0));
+				Main.sound.play("sht");
 			}
 		}else{
 			cs = true;
@@ -121,6 +123,8 @@ class Player extends AABB implements Entity {
 		alive = false;
 		rt = 0;
 		level.createDeathParts(this, 0, 0);
+		
+		Main.sound.play("die");
 		
 		Main.doClear = false;
 	}
