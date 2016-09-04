@@ -61,19 +61,6 @@
                  "name":"",
                  "properties":
                     {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":180,
-                 "x":1740,
-                 "y":480
-                }, 
-                {
-                 "height":60,
-                 "name":"",
-                 "properties":
-                    {
                      "direction":"L",
                      "variable":"6"
                     },
@@ -135,6 +122,19 @@
                  "width":30,
                  "x":60,
                  "y":660
+                }, 
+                {
+                 "height":60,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":300,
+                 "x":1620,
+                 "y":480
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -218,35 +218,11 @@
          "width":64,
          "x":0,
          "y":0
-        }, 
-        {
-         "height":36,
-         "name":"item",
-         "objects":[
-                {
-                 "height":60,
-                 "name":"glitch",
-                 "properties":
-                    {
-                     "variable":"glitch"
-                    },
-                 "type":"key",
-                 "visible":true,
-                 "width":60,
-                 "x":1020,
-                 "y":810
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":64,
-         "x":0,
-         "y":0
         }],
  "orientation":"orthogonal",
  "properties":
     {
-     "player":"63,16"
+     "player":"63,16;1,20"
     },
  "tileheight":30,
  "tilesets":[],

@@ -5,33 +5,7 @@
          "name":"platform",
          "objects":[
                 {
-                 "height":240,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":60,
-                 "x":0,
-                 "y":0
-                }, 
-                {
-                 "height":480,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":60,
-                 "x":0,
-                 "y":480
-                }, 
-                {
-                 "height":120,
+                 "height":60,
                  "name":"",
                  "properties":
                     {
@@ -41,23 +15,10 @@
                  "visible":true,
                  "width":1920,
                  "x":0,
-                 "y":960
-                }, 
-                {
-                 "height":60,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":1800,
-                 "x":60,
                  "y":0
                 }, 
                 {
-                 "height":720,
+                 "height":300,
                  "name":"",
                  "properties":
                     {
@@ -67,7 +28,20 @@
                  "visible":true,
                  "width":60,
                  "x":1860,
-                 "y":0
+                 "y":60
+                }, 
+                {
+                 "height":420,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":60,
+                 "x":1860,
+                 "y":600
                 }, 
                 {
                  "height":60,
@@ -78,12 +52,12 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":1500,
+                 "width":1560,
                  "x":360,
-                 "y":660
+                 "y":1020
                 }, 
                 {
-                 "height":60,
+                 "height":660,
                  "name":"",
                  "properties":
                     {
@@ -91,9 +65,23 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":120,
-                 "x":60,
-                 "y":480
+                 "width":60,
+                 "x":0,
+                 "y":60
+                }, 
+                {
+                 "height":60,
+                 "name":"",
+                 "properties":
+                    {
+                     "direction":"L",
+                     "variable":"6"
+                    },
+                 "type":"platformSpawner",
+                 "visible":true,
+                 "width":30,
+                 "x":1830,
+                 "y":660
                 }, 
                 {
                  "height":60,
@@ -106,20 +94,7 @@
                  "visible":true,
                  "width":240,
                  "x":1620,
-                 "y":480
-                }, 
-                {
-                 "height":240,
-                 "name":"R_04_Door",
-                 "properties":
-                    {
-                     "variable":"R4K"
-                    },
-                 "type":"door",
-                 "visible":true,
-                 "width":60,
-                 "x":1860,
-                 "y":720
+                 "y":600
                 }, 
                 {
                  "height":120,
@@ -130,9 +105,35 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":120,
-                 "x":60,
-                 "y":840
+                 "width":360,
+                 "x":0,
+                 "y":960
+                }, 
+                {
+                 "height":390,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":60,
+                 "x":360,
+                 "y":60
+                }, 
+                {
+                 "height":210,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":60,
+                 "x":360,
+                 "y":810
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -147,31 +148,31 @@
          "objects":[
                 {
                  "height":240,
-                 "name":"right",
+                 "name":"0 to L4-1",
                  "properties":
                     {
-                     "level":"R5",
-                     "spawn":"0"
-                    },
-                 "type":"portal",
-                 "visible":true,
-                 "width":60,
-                 "x":1950,
-                 "y":720
-                }, 
-                {
-                 "height":240,
-                 "name":"left",
-                 "properties":
-                    {
-                     "level":"R3",
+                     "level":"L4",
                      "spawn":"1"
                     },
                  "type":"portal",
                  "visible":true,
                  "width":60,
+                 "x":1950,
+                 "y":360
+                }, 
+                {
+                 "height":240,
+                 "name":"1 to L6-0",
+                 "properties":
+                    {
+                     "level":"L6",
+                     "spawn":"0"
+                    },
+                 "type":"portal",
+                 "visible":true,
+                 "width":60,
                  "x":-90,
-                 "y":240
+                 "y":720
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -185,41 +186,95 @@
          "name":"enemy",
          "objects":[
                 {
-                 "height":60,
-                 "name":"gun",
+                 "height":30,
+                 "name":"kill",
                  "properties":
                     {
-                     "direction":"L"
+
                     },
                  "type":"enemy",
                  "visible":true,
-                 "width":90,
-                 "x":1770,
-                 "y":570
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":64,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":36,
-         "name":"item",
-         "objects":[
+                 "width":1440,
+                 "x":420,
+                 "y":990
+                }, 
                 {
-                 "height":60,
-                 "name":"R_04_Key",
+                 "height":30,
+                 "name":"kill",
                  "properties":
                     {
-                     "variable":"R4K"
+
                     },
-                 "type":"key",
+                 "type":"enemy",
+                 "visible":true,
+                 "width":120,
+                 "x":1200,
+                 "y":630
+                }, 
+                {
+                 "height":30,
+                 "name":"kill",
+                 "properties":
+                    {
+
+                    },
+                 "type":"enemy",
+                 "visible":true,
+                 "width":120,
+                 "x":750,
+                 "y":630
+                }, 
+                {
+                 "height":30,
+                 "name":"kill",
+                 "properties":
+                    {
+
+                    },
+                 "type":"enemy",
                  "visible":true,
                  "width":60,
-                 "x":1710,
-                 "y":390
+                 "x":360,
+                 "y":780
+                }, 
+                {
+                 "height":30,
+                 "name":"kill",
+                 "properties":
+                    {
+
+                    },
+                 "type":"enemy",
+                 "visible":true,
+                 "width":60,
+                 "x":360,
+                 "y":450
+                }, 
+                {
+                 "height":210,
+                 "name":"kill",
+                 "properties":
+                    {
+
+                    },
+                 "type":"enemy",
+                 "visible":true,
+                 "width":30,
+                 "x":420,
+                 "y":780
+                }, 
+                {
+                 "height":420,
+                 "name":"kill",
+                 "properties":
+                    {
+
+                    },
+                 "type":"enemy",
+                 "visible":true,
+                 "width":30,
+                 "x":420,
+                 "y":60
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -231,7 +286,7 @@
  "orientation":"orthogonal",
  "properties":
     {
-     "player":"1,16;63,32"
+     "player":"63,20;1,32"
     },
  "tileheight":30,
  "tilesets":[],

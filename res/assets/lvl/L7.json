@@ -5,33 +5,7 @@
          "name":"platform",
          "objects":[
                 {
-                 "height":240,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":60,
-                 "x":0,
-                 "y":0
-                }, 
-                {
-                 "height":480,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":60,
-                 "x":0,
-                 "y":480
-                }, 
-                {
-                 "height":120,
+                 "height":60,
                  "name":"",
                  "properties":
                     {
@@ -41,7 +15,7 @@
                  "visible":true,
                  "width":1920,
                  "x":0,
-                 "y":960
+                 "y":0
                 }, 
                 {
                  "height":60,
@@ -52,12 +26,12 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":1800,
-                 "x":60,
-                 "y":0
+                 "width":1920,
+                 "x":0,
+                 "y":1020
                 }, 
                 {
-                 "height":720,
+                 "height":300,
                  "name":"",
                  "properties":
                     {
@@ -67,10 +41,10 @@
                  "visible":true,
                  "width":60,
                  "x":1860,
-                 "y":0
+                 "y":60
                 }, 
                 {
-                 "height":60,
+                 "height":420,
                  "name":"",
                  "properties":
                     {
@@ -78,22 +52,9 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":1500,
-                 "x":360,
-                 "y":660
-                }, 
-                {
-                 "height":60,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":120,
-                 "x":60,
-                 "y":480
+                 "width":60,
+                 "x":1860,
+                 "y":600
                 }, 
                 {
                  "height":60,
@@ -106,23 +67,10 @@
                  "visible":true,
                  "width":240,
                  "x":1620,
-                 "y":480
+                 "y":600
                 }, 
                 {
-                 "height":240,
-                 "name":"R_04_Door",
-                 "properties":
-                    {
-                     "variable":"R4K"
-                    },
-                 "type":"door",
-                 "visible":true,
-                 "width":60,
-                 "x":1860,
-                 "y":720
-                }, 
-                {
-                 "height":120,
+                 "height":60,
                  "name":"",
                  "properties":
                     {
@@ -130,9 +78,73 @@
                     },
                  "type":"platform",
                  "visible":true,
-                 "width":120,
+                 "width":210,
                  "x":60,
-                 "y":840
+                 "y":600
+                }, 
+                {
+                 "height":300,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":60,
+                 "x":0,
+                 "y":60
+                }, 
+                {
+                 "height":420,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":60,
+                 "x":0,
+                 "y":600
+                }, 
+                {
+                 "height":60,
+                 "name":"",
+                 "properties":
+                    {
+                     "direction":"R",
+                     "variable":"6"
+                    },
+                 "type":"platformSpawner",
+                 "visible":true,
+                 "width":30,
+                 "x":270,
+                 "y":600
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":64,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":36,
+         "name":"enemy",
+         "objects":[
+                {
+                 "height":30,
+                 "name":"kill",
+                 "properties":
+                    {
+
+                    },
+                 "type":"enemy",
+                 "visible":true,
+                 "width":1800,
+                 "x":60,
+                 "y":990
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -147,79 +159,31 @@
          "objects":[
                 {
                  "height":240,
-                 "name":"right",
+                 "name":"1 to L8-0",
                  "properties":
                     {
-                     "level":"R5",
+                     "level":"L8",
                      "spawn":"0"
                     },
                  "type":"portal",
                  "visible":true,
                  "width":60,
-                 "x":1950,
-                 "y":720
+                 "x":-90,
+                 "y":360
                 }, 
                 {
                  "height":240,
-                 "name":"left",
+                 "name":"0 to L6-1",
                  "properties":
                     {
-                     "level":"R3",
+                     "level":"L6",
                      "spawn":"1"
                     },
                  "type":"portal",
                  "visible":true,
                  "width":60,
-                 "x":-90,
-                 "y":240
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":64,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":36,
-         "name":"enemy",
-         "objects":[
-                {
-                 "height":60,
-                 "name":"gun",
-                 "properties":
-                    {
-                     "direction":"L"
-                    },
-                 "type":"enemy",
-                 "visible":true,
-                 "width":90,
-                 "x":1770,
-                 "y":570
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":64,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":36,
-         "name":"item",
-         "objects":[
-                {
-                 "height":60,
-                 "name":"R_04_Key",
-                 "properties":
-                    {
-                     "variable":"R4K"
-                    },
-                 "type":"key",
-                 "visible":true,
-                 "width":60,
-                 "x":1710,
-                 "y":390
+                 "x":1950,
+                 "y":360
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -231,7 +195,7 @@
  "orientation":"orthogonal",
  "properties":
     {
-     "player":"1,16;63,32"
+     "player":"63,20;1,20"
     },
  "tileheight":30,
  "tilesets":[],

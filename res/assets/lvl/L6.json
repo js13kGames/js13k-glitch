@@ -2,8 +2,45 @@
  "layers":[
         {
          "height":36,
+         "name":"item",
+         "objects":[
+                {
+                 "height":60,
+                 "name":"glitch",
+                 "properties":
+                    {
+                     "variable":"glitch"
+                    },
+                 "type":"key",
+                 "visible":true,
+                 "width":60,
+                 "x":930,
+                 "y":840
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":64,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":36,
          "name":"platform",
          "objects":[
+                {
+                 "height":120,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":1920,
+                 "x":0,
+                 "y":960
+                }, 
                 {
                  "height":720,
                  "name":"",
@@ -42,49 +79,8 @@
                  "width":60,
                  "x":1860,
                  "y":60
-                }, 
-                {
-                 "height":120,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"platform",
-                 "visible":true,
-                 "width":1920,
-                 "x":0,
-                 "y":960
                 }],
          "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":64,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":36,
-         "name":"item",
-         "objects":[
-                {
-                 "height":60,
-                 "name":"gun",
-                 "properties":
-                    {
-                     "variable":"gun"
-                    },
-                 "type":"key",
-                 "visible":true,
-                 "width":60,
-                 "x":930,
-                 "y":840
-                }],
-         "opacity":1,
-         "properties":
-            {
-             "player":"1,32"
-            },
          "type":"objectgroup",
          "visible":true,
          "width":64,
@@ -97,30 +93,30 @@
          "objects":[
                 {
                  "height":240,
-                 "name":"Left",
+                 "name":"0 to L5-1",
                  "properties":
                     {
-                     "level":"R5",
+                     "level":"L5",
                      "spawn":"1"
                     },
                  "type":"portal",
                  "visible":true,
                  "width":60,
-                 "x":-90,
+                 "x":1950,
                  "y":720
                 }, 
                 {
                  "height":240,
-                 "name":"Left",
+                 "name":"1 to L7-0",
                  "properties":
                     {
-                     "level":"R7",
+                     "level":"L7",
                      "spawn":"0"
                     },
                  "type":"portal",
                  "visible":true,
                  "width":60,
-                 "x":1950,
+                 "x":-90,
                  "y":720
                 }],
          "opacity":1,
@@ -133,7 +129,7 @@
  "orientation":"orthogonal",
  "properties":
     {
-     "player":"1,32;63,32"
+     "player":"63,32;1,32"
     },
  "tileheight":30,
  "tilesets":[],
