@@ -51,12 +51,20 @@ class Player extends AABB implements Entity {
 			if (p.checkOverlap(this, 0, my)) {
 				if(ySpeed > 0){
 					ground = true;
+					if(ySpeed > 4000 * s){
+						Main.sound.play("lnd");
+					}
 					
 					var mp:MovingPlatform = Std.instance(p, MovingPlatform);
 					if(mp != null){
 						mx += mp.xs * s;
 					}
 				}
+				
+				if(ySpeed < 0){
+					Main.sound.play("bmp");
+				}
+				
 				//Move to contact
 				my = this.moveContactY(p, my);
 				my = my > 0 ? my - 0.2 : my + 0.2;
@@ -66,6 +74,10 @@ class Player extends AABB implements Entity {
 			if(p.checkOverlap(this, mx)){
 				//move to contact
 				mx = this.moveContactX(p, mx);
+				if(Math.abs(mx) > 2){
+					Main.sound.play("bmp");
+				}
+				
 				mx = mx > 0 ? mx - 0.2 : mx + 0.2;
 			}
 		}

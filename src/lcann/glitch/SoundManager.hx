@@ -10,9 +10,11 @@ import js.html.AudioElement;
 @:initPackage
 class SoundManager{
 	private var s:Map<String, AudioElement>;
+	private var v:Float;
 	
 	public function new(soundDefList:Array<SoundDef>) {
 		s = new Map<String, AudioElement>();
+		v = 1;
 		
 		for (sd in soundDefList) {
 			var url:String = untyped jsfxr(sd.d);
@@ -23,7 +25,9 @@ class SoundManager{
 		}
 	}
 	
-	public function play(n:String):Void{
+	public function play(n:String):Void {
+		s[n].currentTime = 0;
+		s[n].volume = v;
 		s[n].play();
 	}
 	
