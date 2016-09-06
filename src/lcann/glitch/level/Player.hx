@@ -14,6 +14,8 @@ class Player extends AABB implements Entity {
 	private var rt:Float;
 	private var cs:Bool;
 	private var fr:Bool;
+	
+	private var lt:String;
 
 	public function new(x:Float, y:Float) {
 		super(-30, 30, -140, 0);
@@ -24,6 +26,8 @@ class Player extends AABB implements Entity {
 		alive = true;
 		cs = true;
 		fr = true;
+		
+		lt = null;
 	}
 	
 	/* INTERFACE lcann.glitch.Entity */
@@ -111,24 +115,48 @@ class Player extends AABB implements Entity {
 			}
 		}
 		
-		if(Main.controls.getShoot() && Main.checkStateFlag("gun")){
-			if(cs){
-				cs = false;
-				level.pb.add(new PlayerBullet(x, y -70, fr ? 1000 : -1000, 0));
-				Main.sound.play("sht");
-			}
-		}else{
-			cs = true;
-		}
-		
-		if(Main.controls.getGlitch() && Main.checkStateFlag("glitch")){
-			Main.doClear = false;
-		}else{
-			Main.doClear = true;
-		}
-		
 		Main.c.fillStyle = "white";
 		Main.c.fillRect(x - 30, y - 140, 60, 140);
+		
+		tut("[<] Move [>]", "hm", mx != 0);
+		tut("[/\\] Jump", "hj", ySpeed < 0);
+		
+		if (Main.checkStateFlag("gun")) {
+			tut("[Z] Shoot", "hs", !cs);
+			
+			if(Main.controls.getShoot()){
+				if(cs){
+					cs = false;
+					level.pb.add(new PlayerBullet(x, y -70, fr ? 1000 : -1000, 0));
+					Main.sound.play("sht");
+				}
+			}else{
+				cs = true;
+			}
+		 }
+		
+		if(Main.checkStateFlag("glitch")){
+			if(Main.controls.getGlitch()){
+				Main.doClear = false;
+			}else{
+				Main.doClear = true;
+			}
+			
+			tut("[X] Glitch", "hg", Main.controls.getGlitch());
+		}
+	}
+	
+	private function tut(t:String, f:String, d:Bool):Void {
+		if (!Main.checkStateFlag(f)) {
+			if(lt == null || lt == f){
+				Main.c.fillText(t, x, y - 160);
+				lt = f;
+			}
+			
+			if(d){
+				Main.state.flags.set(f, true);
+			}
+		}
 	}
 	
 	private function die(level:Level){

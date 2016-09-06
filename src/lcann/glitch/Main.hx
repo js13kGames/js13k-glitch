@@ -35,6 +35,8 @@ class Main {
 		
 		c = canvas.getContext2d();
 		c.imageSmoothingEnabled = false;
+		c.font = '30px "Lucida Console", Monaco, monospace';
+		c.textAlign = "center";
 		
 		controls = new Controls();
 		sound = new SoundManager(r.snd);
