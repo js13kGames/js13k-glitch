@@ -208,6 +208,19 @@
                  "width":60,
                  "x":240,
                  "y":930
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+                     "variable":"RB"
+                    },
+                 "type":"cable",
+                 "visible":true,
+                 "width":1800,
+                 "x":60,
+                 "y":90
                 }],
          "opacity":1,
          "type":"objectgroup",

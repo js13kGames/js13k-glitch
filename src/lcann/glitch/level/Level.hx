@@ -63,6 +63,8 @@ class Level {
 			switch(i.t){
 				case "k":
 					item.push(new Key(i.x, i.y, i.w, i.h, i.v));
+				case "c":
+					item.push(new Cable(i.x, i.y, i.w, i.h, i.v));
 			}
 		}
 		

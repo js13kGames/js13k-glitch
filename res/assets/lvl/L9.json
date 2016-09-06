@@ -327,6 +327,19 @@
                  "width":60,
                  "x":930,
                  "y":150
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+                     "variable":"LB"
+                    },
+                 "type":"cable",
+                 "visible":true,
+                 "width":1860,
+                 "x":60,
+                 "y":90
                 }],
          "opacity":1,
          "type":"objectgroup",

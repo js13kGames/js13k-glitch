@@ -186,6 +186,15 @@ class ResBuilder {
 						t: "k",
 						v: o.properties.variable
 					} );
+				case "cable":
+					def.item.push({
+						x: o.x,
+						y: o.y,
+						w: o.width,
+						h: o.height,
+						t: "c",
+						v: o.properties.variable
+					});
 			}
 		}
 	}
@@ -194,6 +203,7 @@ class ResBuilder {
 		var txt = File.getContent(path.toString());
 		
 		var arr:Array<Float> = new Array<Float>();
+
 		for(t in txt.split(",")){
 			arr.push(t.length > 0 ? Std.parseFloat(t) : 0);
 		}

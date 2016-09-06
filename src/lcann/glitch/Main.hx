@@ -19,7 +19,7 @@ class Main {
 	public static var canvas(default, null):CanvasElement;
 	public static var c(default, null):CanvasRenderingContext2D;
 	
-	private static var clearData:ImageData;
+	private static var cd:ImageData;
 	public static var doClear:Bool = true;
 	private static var isClear:Bool = true;
 	
@@ -28,7 +28,7 @@ class Main {
 	public static var controls(default, null):Controls;
 	public static var sound(default, null):SoundManager;
 	public static var state(default, null):State;
-	private static var level:Level;
+	private static var lvl:Level;
 	
 	static function main() {
 		canvas = cast Browser.window.document.getElementById("c");
@@ -41,7 +41,7 @@ class Main {
 		
 		state = {
 			flags: new Map<String, Bool>(),
-			level: "S",
+			lvl: "S",
 			spawn: 0
 		}
 		resetLevel();
@@ -51,24 +51,24 @@ class Main {
 	}
 	
 	static public function resetLevel():Void{
-		loadLevel(state.level, state.spawn);
+		loadLevel(state.lvl, state.spawn);
 	}
 	
 	static public function loadLevel(name:String, spawn:Int):Void {
 		c.fillStyle = "black";
 		c.fillRect(0, 0, canvas.width, canvas.height);
-		clearData = c.getImageData(0, 0, canvas.width, canvas.height);
+		cd = c.getImageData(0, 0, canvas.width, canvas.height);
 		
-		state.level = name;
+		state.lvl = name;
 		state.spawn = spawn;
 		
 		for(l in r.levels){
 			if(l.name == name){
-				level = new Level(l, spawn);
+				lvl = new Level(l, spawn);
 				return;
 			}
 		}
-		level = null;
+		lvl = null;
 	}
 	
 	static private function step(ms:Float):Void {
@@ -79,15 +79,15 @@ class Main {
 			if (!isClear) {
 				c.fillStyle = "rgba(0,0,0,0.5)";
 				c.fillRect(0, 0, canvas.width, canvas.height);
-				clearData = c.getImageData(0, 0, canvas.width, canvas.height);
+				cd = c.getImageData(0, 0, canvas.width, canvas.height);
 			}
-			c.putImageData(clearData, 0, 0);
+			c.putImageData(cd, 0, 0);
 		}
 		isClear = doClear;
 		
 		
-		if(level != null){
-			level.update(s);
+		if(lvl != null){
+			lvl.update(s);
 		}
 		
 		Browser.window.requestAnimationFrame(step);

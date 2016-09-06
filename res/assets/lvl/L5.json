@@ -282,6 +282,43 @@
          "width":64,
          "x":0,
          "y":0
+        }, 
+        {
+         "height":36,
+         "name":"item",
+         "objects":[
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+                     "variable":"LB"
+                    },
+                 "type":"cable",
+                 "visible":true,
+                 "width":1410,
+                 "x":450,
+                 "y":90
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+                     "variable":"LB"
+                    },
+                 "type":"cable",
+                 "visible":true,
+                 "width":300,
+                 "x":60,
+                 "y":90
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":64,
+         "x":0,
+         "y":0
         }],
  "orientation":"orthogonal",
  "properties":

@@ -10,11 +10,11 @@ import js.html.KeyboardEvent;
 class Controls {
 	private var kd:Array<Bool>;
 	
-	private var lk:Int = KeyboardEvent.DOM_VK_LEFT;
-	private var rk:Int = KeyboardEvent.DOM_VK_RIGHT;
-	private var jk:Int = KeyboardEvent.DOM_VK_UP;
-	private var sk:Int = KeyboardEvent.DOM_VK_Z;
-	private var gk:Int = KeyboardEvent.DOM_VK_X;
+	private static inline var lk:Int = KeyboardEvent.DOM_VK_LEFT;
+	private static inline var rk:Int = KeyboardEvent.DOM_VK_RIGHT;
+	private static inline var jk:Int = KeyboardEvent.DOM_VK_UP;
+	private static inline var sk:Int = KeyboardEvent.DOM_VK_Z;
+	private static inline var gk:Int = KeyboardEvent.DOM_VK_X;
 	
 	public function new() {
 		kd = new Array<Bool>();

@@ -6,6 +6,6 @@ package lcann.glitch;
  */
 typedef State = {
 	var flags:Map<String, Bool>;
-	var level:String;
+	var lvl:String;
 	var spawn:Int;
 }

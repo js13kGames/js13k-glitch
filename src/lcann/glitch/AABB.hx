@@ -23,27 +23,13 @@ class AABB{
 	}
 	
 	public function checkOverlap(other:AABB, xShift:Float = 0, yShift:Float = 0):Bool {
-		if(!a){
-			return false;
-		}
-		
-		if (this.x + aabbLeft > other.x + other.aabbRight + xShift) {
-			return false;
-		}
-		
-		if(this.x + aabbRight < other.x + other.aabbLeft + xShift){
-			return false;
-		}
-		
-		if(this.y + aabbTop > other.y + other.aabbBottom + yShift){
-			return false;
-		}
-		
-		if(this.y + aabbBottom < other.y + other.aabbTop + yShift){
-			return false;
-		}
-		
-		return true;
+		return !(
+			!a
+			|| (this.x + aabbLeft > other.x + other.aabbRight + xShift)
+			|| (this.x + aabbRight < other.x + other.aabbLeft + xShift)
+			|| (this.y + aabbTop > other.y + other.aabbBottom + yShift)
+			|| (this.y + aabbBottom < other.y + other.aabbTop + yShift)
+		);
 	}
 	
 	public function moveContactX(other:AABB, max:Float):Float{
