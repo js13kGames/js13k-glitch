@@ -39,7 +39,8 @@
     <hidden path="obj" />
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>util/clean.bat</preBuildCommand>
+  <preBuildCommand>util/clean.bat
+py util/minImages.py</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False">py util/package.py</postBuildCommand>
   <!-- Other project options -->

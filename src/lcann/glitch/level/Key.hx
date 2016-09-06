@@ -22,8 +22,7 @@ class Key extends AABB implements Entity{
 	/* INTERFACE lcann.glitch.level.Entity */
 	public function update(level:Level, s:Float):Void {
 		if (a) {
-			Main.c.fillStyle = "yellow";
-			Main.c.fillRect(x + aabbLeft, y + aabbTop, (x + aabbRight) - (x + aabbLeft), (y + aabbBottom) - (y + aabbTop));
+			Main.c.drawImage(Main.img.get("key"), 0, 0, 100, 100, x + aabbLeft, y + aabbTop, (x + aabbRight) - (x + aabbLeft), (y + aabbBottom) - (y + aabbTop));
 			
 			if(level.player.checkOverlap(this)){
 				Main.state.flags[v] = true;

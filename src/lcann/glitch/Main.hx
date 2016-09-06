@@ -28,6 +28,7 @@ class Main {
 	public static var controls(default, null):Controls;
 	public static var sound(default, null):SoundManager;
 	public static var state(default, null):State;
+	public static var img(default, null):ImgManager;
 	private static var lvl:Level;
 	
 	static function main() {
@@ -40,6 +41,7 @@ class Main {
 		
 		controls = new Controls();
 		sound = new SoundManager(r.snd);
+		img = new ImgManager(r.img);
 		
 		state = {
 			flags: new Map<String, Bool>(),

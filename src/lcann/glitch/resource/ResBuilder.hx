@@ -20,6 +20,7 @@ import lcann.glitch.level.EnemyDef;
 import lcann.glitch.level.ItemDef;
 
 import lcann.glitch.SoundDef;
+import lcann.glitch.ImgDef;
 #end
 
 /**
@@ -47,9 +48,19 @@ class ResBuilder {
 			}
 		}
 		
+		var images:Array<ImgDef> = new Array<ImgDef>();
+		var imagePath:String = "res/assets/img/min/";
+		for (f in FileSystem.readDirectory(imagePath)) {
+			var path:Path = new Path(imagePath + f);
+			if(path.ext == "svg"){
+				images.push(buildImage(path));
+			}
+		}
+		
 		var c = macro class R {
 			public var levels:Array<lcann.glitch.level.LevelDef> = $v { levels };
 			public var snd:Array<lcann.glitch.SoundDef> = $v { sounds };
+			public var img:Array<lcann.glitch.ImgDef> = $v { images };
 			public function new(){}
 		}
 		
@@ -211,6 +222,13 @@ class ResBuilder {
 		return {
 			n: path.file,
 			d: arr
+		}
+	}
+	
+	private static function buildImage(path:Path):ImgDef {
+		return {
+			n: path.file,
+			d: File.getContent(path.toString())
 		}
 	}
 	#end
