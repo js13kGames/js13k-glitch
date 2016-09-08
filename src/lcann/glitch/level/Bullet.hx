@@ -37,8 +37,12 @@ class Bullet extends AABB implements Entity{
 			}
 		}
 		
-		Main.c.fillStyle = "red";
-		Main.c.fillRect(x + aabbLeft, y + aabbTop, (x + aabbRight) - (x + aabbLeft), (y + aabbBottom) - (y + aabbTop));
+		Main.c.save();
+		Main.c.translate(x, y);
+		Main.c.rotate(Math.atan2(ys, xs));
+		
+		Main.c.drawImage(Main.img.get("blt"), 0, 0, 16, 16, aabbLeft, aabbTop, aabbRight - aabbLeft, aabbBottom - aabbTop);
+		Main.c.restore();
 	}
 	
 	private function destroy(level:Level):Void{

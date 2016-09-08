@@ -8,12 +8,15 @@ import lcann.glitch.level.Level;
 class EnemyWalker extends Enemy {
 	private var r:Bool;
 	private var xs:Float;
+	private var i:String;
 
-	public function new(x:Float, y:Float, width:Float, height:Float, right:Bool ) {
-		super(x, y, width, height);
-		r = right;
+	public function new(x:Float, y:Float, w:Float, h:Float, r:Bool ) {
+		super(x, y, w, h);
+		this.r = r;
 		xs = 400;
 		hp = 2;
+		
+		i = h > w ? "wlkt" : "wlk";
 	}
 	
 	override public function update(level:Level, s:Float):Void {
@@ -55,5 +58,9 @@ class EnemyWalker extends Enemy {
 		}
 		
 		this.x += mx;
+	}
+	
+	override public function draw():Void {
+		Main.c.drawImage(Main.img.get(ht > 0 ? i + "_h" : i), this.x + aabbLeft, this.y + aabbTop);
 	}
 }

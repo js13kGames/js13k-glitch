@@ -39,6 +39,13 @@ class Enemy extends AABB implements Entity {
 		
 		if(ht > 0){
 			ht -= s;
+		}
+		
+		draw();
+	}
+	
+	public function draw():Void{
+		if(ht > 0){
 			Main.c.fillStyle = "white";
 		}else{
 			Main.c.fillStyle = "red";

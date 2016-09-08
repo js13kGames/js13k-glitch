@@ -26,4 +26,13 @@ class EnemyGun extends Enemy{
 			Main.sound.play("esh");
 		}
 	}
+	
+	override public function draw():Void {
+		Main.c.save();
+		if (!r) {
+			Main.c.scale( -1, 1);
+		}
+		Main.c.drawImage(Main.img.get(ht > 0 ? "sht_h" : "sht"),  (r ? x : -x) + aabbLeft, this.y + aabbTop);
+		Main.c.restore();
+	}
 }
