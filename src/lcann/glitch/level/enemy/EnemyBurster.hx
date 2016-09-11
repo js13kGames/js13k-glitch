@@ -37,12 +37,7 @@ class EnemyBurster extends EnemyWalker{
 	}
 	
 	override public function draw():Void {
-		if(ht > 0){
-			Main.c.fillStyle = "white";
-		}else{
-			Main.c.fillStyle = "red";
-		}
-		Main.c.fillRect(x + aabbLeft, y + aabbTop, (x + aabbRight) - (x + aabbLeft), (y + aabbBottom) - (y + aabbTop));
+		Main.c.drawImage(Main.img.get(ht > 0 ? "bst_h" : "bst"), this.x + aabbLeft, this.y + aabbTop);
 	}
 	
 }

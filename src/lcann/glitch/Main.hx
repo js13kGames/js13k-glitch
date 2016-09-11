@@ -86,12 +86,12 @@ class Main {
 		var s:Float = Math.min((ms - lms) / 1000, 1/24);
 		lms = ms;
 		
-		//if(checkStateFlag("SE")){
+		if(checkStateFlag("SE")){
 			doClear = false;
 			
 			lvlStop -= s;
 			fwork.update(s);
-		//}
+		}
 		
 		if (doClear) {
 			if (!isClear) {
