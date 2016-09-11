@@ -4,6 +4,7 @@ import js.Browser;
 import js.html.CanvasElement;
 import js.html.CanvasRenderingContext2D;
 import js.html.ImageData;
+import lcann.glitch.end.FworkMan;
 import lcann.glitch.level.Level;
 import lcann.glitch.level.LevelDef;
 import lcann.glitch.resource.ResBuilder;
@@ -31,6 +32,9 @@ class Main {
 	public static var img(default, null):ImgManager;
 	private static var lvl:Level;
 	
+	private static var lvlStop:Float;
+	private static var fwork:FworkMan;
+	
 	static function main() {
 		canvas = cast Browser.window.document.getElementById("c");
 		
@@ -42,6 +46,9 @@ class Main {
 		controls = new Controls();
 		sound = new SoundManager(r.snd);
 		img = new ImgManager(r.img);
+		
+		lvlStop = 1;
+		fwork = new FworkMan();
 		
 		state = {
 			flags: new Map<String, Bool>(),
@@ -79,6 +86,13 @@ class Main {
 		var s:Float = Math.min((ms - lms) / 1000, 1/24);
 		lms = ms;
 		
+		//if(checkStateFlag("SE")){
+			doClear = false;
+			
+			lvlStop -= s;
+			fwork.update(s);
+		//}
+		
 		if (doClear) {
 			if (!isClear) {
 				c.fillStyle = "rgba(0,0,0,0.5)";
@@ -90,7 +104,7 @@ class Main {
 		isClear = doClear;
 		
 		
-		if(lvl != null){
+		if(lvl != null && lvlStop > 0){
 			lvl.update(s);
 		}
 		
