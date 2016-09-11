@@ -62,7 +62,7 @@ class Level {
 		for(i in levelDef.item){
 			switch(i.t){
 				case "k":
-					item.push(new Key(i.x, i.y, i.w, i.h, i.v));
+					item.push(new Key(i.x, i.y, i.w, i.h, i.v, i.i));
 				case "c":
 					item.push(new Cable(i.x, i.y, i.w, i.h, i.v));
 			}

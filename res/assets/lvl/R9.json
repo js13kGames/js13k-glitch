@@ -174,7 +174,7 @@
          "objects":[
                 {
                  "height":60,
-                 "name":"R9 Key",
+                 "name":"key",
                  "properties":
                     {
                      "variable":"R9K"

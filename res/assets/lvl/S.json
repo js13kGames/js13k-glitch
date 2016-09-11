@@ -303,7 +303,7 @@
                 }, 
                 {
                  "height":60,
-                 "name":"End",
+                 "name":"end",
                  "properties":
                     {
                      "variable":"SE"

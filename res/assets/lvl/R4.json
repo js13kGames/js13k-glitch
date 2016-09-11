@@ -210,7 +210,7 @@
          "objects":[
                 {
                  "height":60,
-                 "name":"R_04_Key",
+                 "name":"key",
                  "properties":
                     {
                      "variable":"R4K"

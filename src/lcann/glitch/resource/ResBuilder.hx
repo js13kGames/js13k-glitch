@@ -195,7 +195,8 @@ class ResBuilder {
 						w: o.width,
 						h: o.height,
 						t: "k",
-						v: o.properties.variable
+						v: o.properties.variable,
+						i: o.name
 					} );
 				case "cable":
 					def.item.push({

@@ -11,4 +11,5 @@ typedef ItemDef ={
 	var h:Float;
 	var t:String;
 	var v:String;
+	@:optional var i:String;
 }

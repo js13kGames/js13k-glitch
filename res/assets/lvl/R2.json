@@ -198,7 +198,7 @@
          "objects":[
                 {
                  "height":60,
-                 "name":"R_02_key",
+                 "name":"key",
                  "properties":
                     {
                      "variable":"R2K"
