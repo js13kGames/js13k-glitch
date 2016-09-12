@@ -134,6 +134,19 @@
                  "width":60,
                  "x":360,
                  "y":810
+                }, 
+                {
+                 "height":60,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"platform",
+                 "visible":true,
+                 "width":120,
+                 "x":240,
+                 "y":900
                 }],
          "opacity":1,
          "type":"objectgroup",
