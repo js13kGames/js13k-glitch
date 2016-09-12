@@ -115,13 +115,19 @@ class Player extends AABB implements Entity {
 			}
 		}
 		
-		Main.c.fillStyle = "white";
-		Main.c.fillRect(x - 30, y - 140, 60, 140);
+		Main.c.drawImage(Main.img.get("pla"), x + aabbLeft, y + aabbTop);
 		
+		Main.c.fillStyle = "white";
 		tut("[<] Move [>]", "hm", mx != 0);
 		tut("[/\\] Jump", "hj", ySpeed < 0);
 		
 		if (Main.checkStateFlag("gun")) {
+			
+			Main.c.save();
+			Main.c.scale(fr ? 0.5 : -0.5, 0.5);
+			Main.c.drawImage(Main.img.get("gun"), (fr ? x : -x) * 2 + 40, y * 2 - 150);
+			Main.c.restore();
+			
 			tut("[Z] Shoot", "hs", !cs);
 			
 			if(Main.controls.getShoot()){
