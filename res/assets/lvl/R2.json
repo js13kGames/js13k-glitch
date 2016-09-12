@@ -173,17 +173,17 @@
          "name":"enemy",
          "objects":[
                 {
-                 "height":60,
+                 "height":150,
                  "name":"walk",
                  "properties":
                     {
-                     "direction":"R"
+                     "direction":"L"
                     },
                  "type":"enemy",
                  "visible":true,
                  "width":60,
                  "x":930,
-                 "y":960
+                 "y":870
                 }],
          "opacity":1,
          "type":"objectgroup",
