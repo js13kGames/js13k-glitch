@@ -158,6 +158,19 @@
                  "width":1800,
                  "x":60,
                  "y":990
+                }, 
+                {
+                 "height":60,
+                 "name":"gun",
+                 "properties":
+                    {
+                     "direction":"R"
+                    },
+                 "type":"enemy",
+                 "visible":true,
+                 "width":90,
+                 "x":60,
+                 "y":210
                 }],
          "opacity":1,
          "type":"objectgroup",
